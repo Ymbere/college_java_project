@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projeto_felipe;
+import DB.DataBase;
 
 /**
  *
@@ -16,6 +17,10 @@ public class Projeto_Felipe {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        DataBase teste = new DataBase();
+        
+        teste.conecta();
+        
     }
     
 }
