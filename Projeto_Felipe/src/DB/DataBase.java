@@ -4,32 +4,27 @@
  * and open the template in the editor.
  */
 package DB;
-
-import java.beans.Statement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  *
  * @author ymber
  */
 public class DataBase {
-
+    
     private Connection con;
     private Statement stm;
     private String logText;
-
+    
     public DataBase(){
-    	con = null;
-    	stm =null;
+        con = null;
+        stm=null;
     }
-
-    public void conecta() {
+    
+    public void conecta(){
         try {
             Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/projeto_felipe", "postgres","1650424");
+            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/trabalho_felipe", "postgres","1650424");
             System.out.println("Conexão bem sucedida!");
             stm = con.createStatement();
         } catch (ClassNotFoundException cnf) {
@@ -38,7 +33,7 @@ public class DataBase {
             System.out.println("Exceção: " + se.toString());
         }
     }
-
+    
     public int executa(String pedido) {
         int retorno = 0;
         try {
@@ -56,7 +51,7 @@ public class DataBase {
             return retorno;
         }
     }
-
+    
     public ResultSet consulta(String consulta) {
         ResultSet rs = null;
         try {
@@ -68,7 +63,7 @@ public class DataBase {
         }
         return rs;
     }
-
+    
     public void fechaConexao() {
         try {
             stm.close();
@@ -77,5 +72,5 @@ public class DataBase {
         } catch (SQLException e) {
             System.out.println("Exceção: " + e.toString());
         }
-    }    
+    }
 }
