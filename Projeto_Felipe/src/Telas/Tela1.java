@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projeto_felipe;
+package Telas;
 
 import DB.DataBase;
 
@@ -108,6 +108,7 @@ public class Tela1 extends javax.swing.JFrame {
         
         pedido = "insert into tb_cliente (nomecliente) values ('"+txt_nome_cliente.getText()+"')";
         acesso.executa(pedido);
+        acesso.fechaConexao();
     }//GEN-LAST:event_btn_cadastrar_clienteActionPerformed
 
     /**
