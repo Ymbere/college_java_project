@@ -21,7 +21,6 @@ public class Projeto_Felipe {
         // TODO code application logic here
         Tela1 tela = new Tela1();
         tela.setVisible(true);
-        
-    }
-    
+        tela.setDefaultCloseOperation(tela.EXIT_ON_CLOSE);       
+    }    
 }
