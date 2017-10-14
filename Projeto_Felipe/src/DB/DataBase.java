@@ -24,7 +24,7 @@ public class DataBase {
     public void conecta(){
         try {
             Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/trabalho_felipe", "postgres","1650424");
+            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/funcionarios", "postgres","1650441");
             System.out.println("Conexão bem sucedida!");
             stm = con.createStatement();
         } catch (ClassNotFoundException cnf) {
