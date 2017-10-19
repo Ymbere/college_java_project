@@ -24,13 +24,29 @@ public class DataBase {
     public void conecta(){
         try {
             Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/funcionarios", "postgres","1650441");
+            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/trabalho_felipe", "postgres","1650424");
             System.out.println("Conexão bem sucedida!");
             stm = con.createStatement();
         } catch (ClassNotFoundException cnf) {
             System.out.println("Exceção: " + cnf.toString());
         } catch (SQLException se) {
             System.out.println("Exceção: " + se.toString());
+        }
+    }
+    
+    public Connection conecta2(){
+        try {
+            Class.forName("org.postgresql.Driver");
+            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/trabalho_felipe", "postgres","1650424");
+            System.out.println("Conexão bem sucedida!");
+            
+        } catch (ClassNotFoundException cnf) {
+            System.out.println("Exceção: " + cnf.toString());
+        } catch (SQLException se) {
+            System.out.println("Exceção: " + se.toString());
+        }
+        finally{
+            return con;
         }
     }
     
