@@ -123,18 +123,20 @@ public class TabelaCleinte extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try { 
           Connection conn = null; 
-          Class.forName("org.postgresql.Driver");
-          String url = "jdbc:oracle:thin:system/philips@127.0.0.1:1521/XE";
-          conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/trabalho_felipe", "postgres","1650424");
+          conn = db.conecta2();
+          conn.setAutoCommit(false);
           try{
           String sql = "update tb_cliente set nomecliente = ?, emailcliente = ?, cpfcliente = ?, telefonecliente = ? where idcliente = ?";
           PreparedStatement ps = conn.prepareStatement(sql);   
+            System.out.println(jTable1.getRowCount());
           for(int linha=0; linha<jTable1.getRowCount();linha++){
-          ps.setObject(1, jTable1.getModel().getValueAt(linha, 2));
-          ps.setObject(2, jTable1.getModel().getValueAt(linha, 3));
-          ps.setObject(3, jTable1.getModel().getValueAt(linha, 4));
-          ps.setObject(4, jTable1.getModel().getValueAt(linha, 5));;
-          ps.setObject(5, linha);
+          ps.setObject(5, linha+1);
+          ps.setObject(1, jTable1.getModel().getValueAt(linha, 1));
+          
+          ps.setObject(2, jTable1.getModel().getValueAt(linha, 2));
+          ps.setObject(3, jTable1.getModel().getValueAt(linha, 3));
+          ps.setObject(4, jTable1.getModel().getValueAt(linha, 4));
+           System.out.println(ps.toString());
           ps.executeUpdate();
           conn.commit();
           }
