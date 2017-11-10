@@ -5,6 +5,7 @@
  */
 package Telas;
 
+
 /**
  *
  * @author caue
@@ -14,8 +15,11 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+ 
+
     public Menu() {
         initComponents();
+
     }
 
     /**
@@ -114,6 +118,7 @@ public class Menu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
+                new Menu().setVisible(true);                
             }
         });
     }

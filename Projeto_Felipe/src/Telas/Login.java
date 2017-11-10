@@ -5,9 +5,6 @@
  */
 package Telas;
 
-import com.sun.glass.events.WindowEvent;
-import javax.swing.WindowConstants;
-
 /**
  *
  * @author caue
@@ -18,12 +15,11 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     
-    Login telalogin = new Login();
     
     public Login() {
-        initComponents();
-        
+        initComponents();          
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,14 +81,12 @@ public class Login extends javax.swing.JFrame {
 
     private void btn_Entrar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Entrar_loginActionPerformed
         // TODO add your handling code here:
-        
-        
+
         Menu menu = new Menu();
-        menu.setVisible(true);
+        menu.setVisible(true); 
+        dispose();
         
-        // fechar a merda do login
-        telalogin.dispose();
-       
+        
     }//GEN-LAST:event_btn_Entrar_loginActionPerformed
 
     /**
@@ -125,7 +119,8 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new Login().setVisible(true);                
+                
             }
         });
     }
