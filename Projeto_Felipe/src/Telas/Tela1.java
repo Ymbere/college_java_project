@@ -6,6 +6,9 @@
 package Telas;
 
 import DB.DataBase;
+import java.awt.List;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +21,19 @@ public class Tela1 extends javax.swing.JFrame {
      */
     DataBase acesso = new DataBase();
     public Tela1() {
-        initComponents();                
+        initComponents();  
+        jpanel_tabela.setVisible(false);
+    }
+    
+    
+    
+    public void limparTelaClientes(){
+        
+        txt_nome_cliente.setText("");
+        txt_cpf_cliente.setText("");
+        txt_telefone_cliente.setText("");
+        txt_email_cliente.setText("");
+        txtfield_endereco.setText("");
     }
 
     /**
@@ -31,6 +46,15 @@ public class Tela1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jFrame1 = new javax.swing.JFrame();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -42,291 +66,287 @@ public class Tela1 extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txt_telefone_cliente = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        txtfield_endereco = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         txt_email_cliente = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        btn_salvar = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        cmbbox_Dono = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtarea_carros_hist = new javax.swing.JTextArea();
+        txtfield_carros_modelo = new javax.swing.JTextField();
+        txtfield_carros_ano = new javax.swing.JTextField();
+        txtfield_carros_cor = new javax.swing.JTextField();
+        txtfield_carros_combust = new javax.swing.JTextField();
+        txtfield_carros_cod = new javax.swing.JTextField();
+        btn_novo = new javax.swing.JButton();
+        btn_editar = new javax.swing.JButton();
+        cmboxCarros = new javax.swing.JComboBox<>();
+        jLabel44 = new javax.swing.JLabel();
+        txtfield_carros_placa = new javax.swing.JTextField();
+        cmbboxMarca = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_numero_ordem = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_id_cliente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txt_id_funcionario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txt_data_solicitacao = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txt_data_conclusao = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         txt_descricao = new javax.swing.JTextField();
         btn_cadastrar_nota = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        btn_cadastrar_funcionario = new javax.swing.JButton();
-        txt_nome_funcionario = new javax.swing.JTextField();
-        jLabelCPF = new javax.swing.JLabel();
-        txt_cpf_funcionario = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txt_email_funcionario = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        txt_telefone_funcionario = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txt_data_solicitacao1 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        txt_id_funcionario2 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jTextField1 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_clientes = new javax.swing.JButton();
+        btn_notas = new javax.swing.JButton();
+        btn_carros = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jpanel_tabela = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        lbl_consulta = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        txtfield_pecas_vunit = new javax.swing.JTextField();
+        txtfield_pecas_codigo = new javax.swing.JTextField();
+        txtfield_pecas_qtd = new javax.swing.JTextField();
+        txtfield_pecas_marca = new javax.swing.JTextField();
+        cmbbox_pecas_categoria = new javax.swing.JComboBox<>();
+        txtfield_pecas_modelo = new javax.swing.JTextField();
+        btn_cad_pecas = new javax.swing.JButton();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenu1.setText("jMenu1");
+
+        jMenuItem3.setText("jMenuItem3");
+
+        jMenu2.setText("File");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar1.add(jMenu3);
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nome");
+        jTabbedPane2.setBackground(new java.awt.Color(190, 190, 190));
+        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane2MouseClicked(evt);
+            }
+        });
 
+        jPanel2.setBackground(new java.awt.Color(190, 190, 190));
+        jPanel2.setForeground(new java.awt.Color(153, 153, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Andale Mono", 1, 14)); // NOI18N
+        jLabel1.setText("NOME");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jPanel2.add(txt_nome_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 390, 40));
+
+        btn_cadastrar_cliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_cadastrar_cliente.setText("CADASTRAR");
         btn_cadastrar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cadastrar_clienteActionPerformed(evt);
             }
         });
+        jPanel2.add(btn_cadastrar_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 120, 50));
 
+        jLabel9.setFont(new java.awt.Font("Andale Mono", 1, 14)); // NOI18N
         jLabel9.setText("CPF");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jPanel2.add(txt_cpf_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 390, 40));
 
-        jLabel10.setText("Telefone:");
+        jLabel10.setFont(new java.awt.Font("Andale Mono", 1, 14)); // NOI18N
+        jLabel10.setText("TELEFONE");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(txt_telefone_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 390, 40));
 
-        jLabel11.setText("E-mail");
+        jLabel11.setFont(new java.awt.Font("Andale Mono", 1, 14)); // NOI18N
+        jLabel11.setText("ENDEREÇO");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        jPanel2.add(txtfield_endereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 390, 40));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_email_cliente))
-                    .addComponent(btn_cadastrar_cliente)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nome_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                            .addComponent(txt_cpf_cliente)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_telefone_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)))
-                .addContainerGap(97, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txt_nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txt_email_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txt_telefone_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(btn_cadastrar_cliente)
-                .addGap(39, 39, 39))
-        );
+        jLabel14.setFont(new java.awt.Font("Thumbs Down", 1, 24)); // NOI18N
+        jLabel14.setText("ItCars");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 131, -1));
+
+        jLabel15.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
+        jLabel15.setText("cadastro de clientes");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 46, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Andale Mono", 1, 14)); // NOI18N
+        jLabel16.setText("E-MAIL");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        jPanel2.add(txt_email_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 390, 40));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Cliente", jPanel1);
 
-        jLabel2.setText("Numero da ordem");
-
-        txt_numero_ordem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_numero_ordemActionPerformed(evt);
+        jPanel5.setBackground(new java.awt.Color(190, 190, 190));
+        jPanel5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel5FocusGained(evt);
             }
         });
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("ID do cliente");
-
-        jLabel4.setText("ID do funcionario");
-
-        txt_id_funcionario.addActionListener(new java.awt.event.ActionListener() {
+        btn_salvar.setBackground(new java.awt.Color(200, 250, 217));
+        btn_salvar.setText("SALVAR");
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_id_funcionarioActionPerformed(evt);
+                btn_salvarActionPerformed(evt);
             }
         });
+        jPanel5.add(btn_salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, -1, 35));
 
-        jLabel5.setText("Data de Solicitação");
+        jLabel19.setFont(new java.awt.Font("Thumbs Down", 1, 24)); // NOI18N
+        jLabel19.setText("ItCars");
+        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 131, -1));
 
-        txt_data_solicitacao.addActionListener(new java.awt.event.ActionListener() {
+        jLabel20.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
+        jLabel20.setText("Carros");
+        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+
+        cmbbox_Dono.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel5.add(cmbbox_Dono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 170, 30));
+
+        jLabel27.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel27.setText("ESCOLHA O CARRO");
+        jPanel5.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 167, -1));
+
+        jLabel28.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel28.setText("DONO");
+        jPanel5.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 67, -1));
+
+        jLabel29.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel29.setText("CÓDIGO");
+        jPanel5.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 67, -1));
+
+        jLabel30.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel30.setText("MARCA");
+        jPanel5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 67, -1));
+
+        jLabel31.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel31.setText("MODELO");
+        jPanel5.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 67, -1));
+
+        jLabel32.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel32.setText("COR");
+        jPanel5.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 67, -1));
+
+        jLabel33.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel33.setText("ANO");
+        jPanel5.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 67, -1));
+
+        jLabel34.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel34.setText("COMBUSTIVEL");
+        jPanel5.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel35.setText("HISTÓRICO");
+        jPanel5.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+
+        txtarea_carros_hist.setColumns(20);
+        txtarea_carros_hist.setRows(5);
+        jScrollPane2.setViewportView(txtarea_carros_hist);
+
+        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 550, -1));
+        jPanel5.add(txtfield_carros_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 359, 30));
+        jPanel5.add(txtfield_carros_ano, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 170, 30));
+        jPanel5.add(txtfield_carros_cor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 170, 30));
+        jPanel5.add(txtfield_carros_combust, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 240, 180, 30));
+        jPanel5.add(txtfield_carros_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 170, 30));
+
+        btn_novo.setBackground(new java.awt.Color(102, 102, 102));
+        btn_novo.setText("NOVO");
+        btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_data_solicitacaoActionPerformed(evt);
+                btn_novoActionPerformed(evt);
             }
         });
+        jPanel5.add(btn_novo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, 35));
 
-        jLabel6.setText("Previsão de conslusão");
-
-        jLabel7.setText("Descrição");
-
-        btn_cadastrar_nota.setText("CADASTRAR");
-        btn_cadastrar_nota.addActionListener(new java.awt.event.ActionListener() {
+        btn_editar.setBackground(new java.awt.Color(248, 254, 188));
+        btn_editar.setText("EDITAR");
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastrar_notaActionPerformed(evt);
+                btn_editarActionPerformed(evt);
             }
         });
+        jPanel5.add(btn_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, 35));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_descricao)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_numero_ordem, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txt_id_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txt_data_solicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txt_data_conclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel7)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txt_id_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btn_cadastrar_nota)))))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_numero_ordem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(txt_id_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txt_id_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(txt_data_solicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txt_data_conclusao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(btn_cadastrar_nota))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_descricao, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        cmboxCarros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel5.add(cmboxCarros, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 360, 30));
 
-        jTabbedPane2.addTab("Notas Fiscais", jPanel3);
+        jLabel44.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel44.setText("PLACA");
+        jPanel5.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 67, -1));
+        jPanel5.add(txtfield_carros_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 170, 30));
 
-        jLabel8.setText("Nome:");
-
-        btn_cadastrar_funcionario.setText("CADASTRAR");
-        btn_cadastrar_funcionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastrar_funcionarioActionPerformed(evt);
-            }
-        });
-
-        jLabelCPF.setText("CPF:");
-
-        jLabel12.setText("Email:");
-
-        jLabel13.setText("Telefone:");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabelCPF))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_cpf_funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(txt_nome_funcionario)))
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_cadastrar_funcionario)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_email_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(jLabel13)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_telefone_funcionario))))
-                .addContainerGap(169, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txt_nome_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCPF)
-                    .addComponent(txt_cpf_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(txt_email_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txt_telefone_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addComponent(btn_cadastrar_funcionario)
-                .addGap(28, 28, 28))
-        );
+        cmbboxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Audi", "Bentley", "BMW", "Chery", "Chevrolet", "Ferrari", "Fiat", "Ford", "Honda", "Hyundai", "Jaguar", "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus", "Lifan", "Mercedes-Benz", "Mini", "Nissan", "Peugeot", "Porsche", "Renault", "Suzuki", "Toyota", "VolksWagen", "Volvo" }));
+        jPanel5.add(cmbboxMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 180, 30));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -336,50 +356,182 @@ public class Tela1 extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Funcionarios", jPanel4);
+        jTabbedPane2.addTab("Carros", jPanel4);
 
-        jButton1.setText("Cliente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel3.setBackground(new java.awt.Color(190, 190, 190));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("NUMERO ORDEM");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        txt_numero_ordem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                txt_numero_ordemActionPerformed(evt);
             }
         });
+        jPanel3.add(txt_numero_ordem, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 47, 30));
 
-        jButton2.setText("Nota Fiscal");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("CARRO");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
-        jButton3.setText("Funcionario");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("FUNCIONARIO");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        txt_id_funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                txt_id_funcionarioActionPerformed(evt);
             }
         });
+        jPanel3.add(txt_id_funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 270, 30));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setText("VALOR TOTAL");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
+        jPanel3.add(txt_descricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 389, 20, 20));
+
+        btn_cadastrar_nota.setBackground(new java.awt.Color(102, 102, 102));
+        btn_cadastrar_nota.setText("CADASTRAR");
+        btn_cadastrar_nota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrar_notaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn_cadastrar_nota, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 120, 80));
+
+        jLabel17.setFont(new java.awt.Font("Thumbs Down", 1, 24)); // NOI18N
+        jLabel17.setText("ItCars");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 131, -1));
+
+        jLabel18.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
+        jLabel18.setText("notas fiscais");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 46, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel23.setText("DATA");
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
+
+        txt_data_solicitacao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_data_solicitacao1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txt_data_solicitacao1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 210, 30));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel24.setText("CLIENTE");
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("PEÇAS");
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("MÃO DE OBRA");
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+
+        txt_id_funcionario2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_funcionario2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txt_id_funcionario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 270, 30));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 420, 30));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel3.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 420, 30));
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 420, 80));
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 420, 30));
+
+        jTabbedPane2.addTab("Notas Fiscais", jPanel3);
+
+        jPanel7.setBackground(new java.awt.Color(190, 190, 190));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_clientes.setBackground(new java.awt.Color(102, 102, 102));
+        btn_clientes.setText("CLIENTES");
+        btn_clientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clientesActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 14, 87, 30));
+
+        btn_notas.setBackground(new java.awt.Color(102, 102, 102));
+        btn_notas.setText("NOTAS");
+        btn_notas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_notasActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_notas, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 14, -1, 30));
+
+        btn_carros.setBackground(new java.awt.Color(102, 102, 102));
+        btn_carros.setText("CARROS");
+        btn_carros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_carrosActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btn_carros, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 14, -1, 30));
+
+        jLabel21.setFont(new java.awt.Font("Thumbs Down", 1, 24)); // NOI18N
+        jLabel21.setText("ItCars");
+        jPanel7.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 131, -1));
+
+        jLabel22.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
+        jLabel22.setText("consultas");
+        jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 49, -1, -1));
+
+        jpanel_tabela.setEnabled(false);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jpanel_tabelaLayout = new javax.swing.GroupLayout(jpanel_tabela);
+        jpanel_tabela.setLayout(jpanel_tabelaLayout);
+        jpanel_tabelaLayout.setHorizontalGroup(
+            jpanel_tabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanel_tabelaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        jpanel_tabelaLayout.setVerticalGroup(
+            jpanel_tabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_tabelaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        jPanel7.add(jpanel_tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 570, -1));
+
+        lbl_consulta.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        lbl_consulta.setText("ESCOLHA O QUE CONSULTAR");
+        jPanel7.add(lbl_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -394,6 +546,60 @@ public class Tela1 extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Consulta", jPanel6);
 
+        jPanel9.setBackground(new java.awt.Color(190, 190, 190));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel36.setFont(new java.awt.Font("Thumbs Down", 1, 24)); // NOI18N
+        jLabel36.setText("ItCars");
+        jPanel9.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 131, -1));
+
+        jLabel37.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
+        jLabel37.setText("pecas");
+        jPanel9.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 49, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel38.setText("VALOR UNITARIO");
+        jPanel9.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 120, -1));
+
+        jLabel39.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel39.setText("CODIGO");
+        jPanel9.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 67, -1));
+
+        jLabel40.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel40.setText("MODELO");
+        jPanel9.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 67, -1));
+
+        jLabel41.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel41.setText("CATEGORIA");
+        jPanel9.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 90, -1));
+
+        jLabel42.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel42.setText("MARCA");
+        jPanel9.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, -1));
+
+        jLabel43.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        jLabel43.setText("QUANTIDADE");
+        jPanel9.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 90, -1));
+        jPanel9.add(txtfield_pecas_vunit, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 350, 30));
+        jPanel9.add(txtfield_pecas_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 180, 30));
+        jPanel9.add(txtfield_pecas_qtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 180, 30));
+        jPanel9.add(txtfield_pecas_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 180, 30));
+
+        cmbbox_pecas_categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carroceria", "Climatização", "Eletroventiladores", "Escapamentos", "Fechaduras e Chaves", "Filtros", "Freios", "Ignição", "Iluminação", "Injeção", "Motor", "Peças de Exterior", "Peças de Interior", "Segurança", "Suspensão e Direção", "Transmissão", "Vidros", "Outros" }));
+        jPanel9.add(cmbbox_pecas_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 350, 30));
+        jPanel9.add(txtfield_pecas_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 350, 30));
+
+        btn_cad_pecas.setBackground(new java.awt.Color(102, 102, 102));
+        btn_cad_pecas.setText("CADASTRAR");
+        btn_cad_pecas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cad_pecasActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btn_cad_pecas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 120, 50));
+
+        jTabbedPane2.addTab("Peças", jPanel9);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -402,19 +608,11 @@ public class Tela1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_cadastrar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrar_clienteActionPerformed
-        acesso.conecta();
-        String pedido;                
-        pedido = "insert into tb_cliente (nomecliente, cpfcliente, emailcliente, telefonecliente) values ('"+txt_nome_cliente.getText()+"','"+txt_cpf_cliente.getText()+"','"+txt_email_cliente.getText()+"', '"+txt_telefone_cliente.getText()+"')";
-        acesso.executa(pedido);
-        acesso.fechaConexao();
-    }//GEN-LAST:event_btn_cadastrar_clienteActionPerformed
 
     private void txt_numero_ordemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numero_ordemActionPerformed
         // TODO add your handling code here:
@@ -424,37 +622,116 @@ public class Tela1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_id_funcionarioActionPerformed
 
-    private void txt_data_solicitacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_data_solicitacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_data_solicitacaoActionPerformed
-
     private void btn_cadastrar_notaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrar_notaActionPerformed
         // TODO add your handling code here:
-        acesso.conecta();
+       /* acesso.conecta();
         String pedido;                
         pedido = "insert into tb_notas_fiscais (ordemnumero, idcliente, idfuncionario, datasolicitacao, dataprevisaoconclusao, descricao) values ('"+txt_numero_ordem.getText()+"','"+txt_id_cliente.getText()+"','"+txt_id_funcionario.getText()+"', '"+txt_data_solicitacao.getText()+"', '"+txt_data_conclusao.getText()+"', '"+txt_descricao.getText()+"')";
         acesso.executa(pedido);
         acesso.fechaConexao();
-        
+        */
     }//GEN-LAST:event_btn_cadastrar_notaActionPerformed
 
-    private void btn_cadastrar_funcionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrar_funcionarioActionPerformed
-        acesso.conecta();
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        /*acesso.conecta();
         String pedido;                
         pedido = "insert into tb_funcionario (nomefuncionario, cpffuncionario, emailfuncionario, telefonefuncionario) values ('"+txt_nome_funcionario.getText()+"','"+txt_cpf_funcionario.getText()+"','"+txt_email_funcionario.getText()+"', '"+txt_telefone_funcionario.getText()+"')";
         acesso.executa(pedido);
         acesso.fechaConexao();
-    }//GEN-LAST:event_btn_cadastrar_funcionarioActionPerformed
+        */
+    }//GEN-LAST:event_btn_salvarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clientesActionPerformed
         // TODO add your handling code here:
         TabelaCleinte consulta_cliente = TabelaCleinte.getInstance();
         consulta_cliente.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_clientesActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_carrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_carrosActionPerformed
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_carrosActionPerformed
+
+    private void btn_cadastrar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrar_clienteActionPerformed
+        acesso.conecta();
+        String sql;
+        sql = "INSERT INTO clientes VALUES (DEFAULT,'"
+                +txt_nome_cliente.getText()+"','"+txt_cpf_cliente.getText()+"','" 
+                +txt_telefone_cliente.getText() + "','" + txt_email_cliente.getText()
+                +"','" + txtfield_endereco.getText() + "');";
+        acesso.inserir(sql);
+        acesso.fechaConexao();
+        limparTelaClientes();
+        
+        
+    }//GEN-LAST:event_btn_cadastrar_clienteActionPerformed
+
+    private void txt_data_solicitacao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_data_solicitacao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_data_solicitacao1ActionPerformed
+
+    private void txt_id_funcionario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_funcionario2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_funcionario2ActionPerformed
+
+    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
+        // TODO add your handling code here:
+        acesso.conecta();
+        String sql;
+        String aux;
+        int ano;
+        aux = txtfield_carros_ano.getText();
+        ano = Integer.parseInt(aux);
+        sql = "INSERT INTO carros VALUES (DEFAULT,'"
+                +txtfield_carros_modelo.getText()+"','"+cmbboxMarca.toString() + "','" 
+                +txtfield_carros_placa.getText() + "','" + txtfield_carros_cor.getText()
+                +"'," + ano + ",'"+ txtfield_carros_combust + "','" +
+                cmbbox_Dono.getSelectedIndex()+1 + "','" + txtarea_carros_hist + "');";
+        acesso.inserir(sql);
+        acesso.fechaConexao();
+    }//GEN-LAST:event_btn_novoActionPerformed
+
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_editarActionPerformed
+
+    private void btn_cad_pecasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cad_pecasActionPerformed
+        // TODO add your handling code here:
+        acesso.conecta();
+        String sql;
+        String aux;
+        int qtd;
+        double preco;
+        aux = txtfield_pecas_qtd.getText();
+        qtd = Integer.parseInt(aux);
+        aux = txtfield_pecas_vunit.getText();
+        preco = Double.parseDouble(aux);
+        sql = "INSERT INTO pecas VALUES (DEFAULT,'"
+                +txtfield_pecas_modelo.getText()+"','"+cmbbox_pecas_categoria.toString()+"','" 
+                +txtfield_pecas_marca.getText() + "'," + qtd + ",'" + 
+                preco + ");";
+        acesso.inserir(sql);
+        acesso.fechaConexao();
+    }//GEN-LAST:event_btn_cad_pecasActionPerformed
+
+    private void btn_notasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_notasActionPerformed
+        // TODO add your handling code here:
+        jpanel_tabela.setVisible(true);
+    }//GEN-LAST:event_btn_notasActionPerformed
+
+    private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
+        // TODO add your handling code here:
+        //JOptionPane.showMessageDialog(null,"Sucesso!");
+        
+        //Popular Combobox Carro
+        cmboxCarros.setModel(acesso.popularcmbox());       
+        
+        
+    }//GEN-LAST:event_jTabbedPane2MouseClicked
+
+    private void jPanel5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel5FocusGained
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jPanel5FocusGained
 
     /**
      * @param args the command line arguments
@@ -492,26 +769,70 @@ public class Tela1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cad_pecas;
     private javax.swing.JButton btn_cadastrar_cliente;
-    private javax.swing.JButton btn_cadastrar_funcionario;
     private javax.swing.JButton btn_cadastrar_nota;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btn_carros;
+    private javax.swing.JButton btn_clientes;
+    private javax.swing.JButton btn_editar;
+    private javax.swing.JButton btn_notas;
+    private javax.swing.JButton btn_novo;
+    private javax.swing.JButton btn_salvar;
+    private javax.swing.JComboBox<String> cmbboxMarca;
+    private javax.swing.JComboBox<String> cmbbox_Dono;
+    private javax.swing.JComboBox<String> cmbbox_pecas_categoria;
+    private javax.swing.JComboBox<String> cmboxCarros;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelCPF;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -519,21 +840,37 @@ public class Tela1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel jpanel_tabela;
+    private javax.swing.JLabel lbl_consulta;
     private javax.swing.JTextField txt_cpf_cliente;
-    private javax.swing.JTextField txt_cpf_funcionario;
-    private javax.swing.JTextField txt_data_conclusao;
-    private javax.swing.JTextField txt_data_solicitacao;
+    private javax.swing.JTextField txt_data_solicitacao1;
     private javax.swing.JTextField txt_descricao;
     private javax.swing.JTextField txt_email_cliente;
-    private javax.swing.JTextField txt_email_funcionario;
-    private javax.swing.JTextField txt_id_cliente;
     private javax.swing.JTextField txt_id_funcionario;
+    private javax.swing.JTextField txt_id_funcionario2;
     private javax.swing.JTextField txt_nome_cliente;
-    private javax.swing.JTextField txt_nome_funcionario;
     private javax.swing.JTextField txt_numero_ordem;
     private javax.swing.JTextField txt_telefone_cliente;
-    private javax.swing.JTextField txt_telefone_funcionario;
+    private javax.swing.JTextArea txtarea_carros_hist;
+    private javax.swing.JTextField txtfield_carros_ano;
+    private javax.swing.JTextField txtfield_carros_cod;
+    private javax.swing.JTextField txtfield_carros_combust;
+    private javax.swing.JTextField txtfield_carros_cor;
+    private javax.swing.JTextField txtfield_carros_modelo;
+    private javax.swing.JTextField txtfield_carros_placa;
+    private javax.swing.JTextField txtfield_endereco;
+    private javax.swing.JTextField txtfield_pecas_codigo;
+    private javax.swing.JTextField txtfield_pecas_marca;
+    private javax.swing.JTextField txtfield_pecas_modelo;
+    private javax.swing.JTextField txtfield_pecas_qtd;
+    private javax.swing.JTextField txtfield_pecas_vunit;
     // End of variables declaration//GEN-END:variables
 }
