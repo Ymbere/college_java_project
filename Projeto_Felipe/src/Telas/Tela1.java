@@ -118,9 +118,9 @@ public class Tela1 extends javax.swing.JFrame {
         txt_id_funcionario2 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         jTextField1 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         btn_clientes = new javax.swing.JButton();
@@ -179,6 +179,15 @@ public class Tela1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane2.setBackground(new java.awt.Color(190, 190, 190));
+        jTabbedPane2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTabbedPane2AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTabbedPane2MouseClicked(evt);
@@ -201,7 +210,7 @@ public class Tela1 extends javax.swing.JFrame {
                 btn_cadastrar_clienteActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_cadastrar_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 120, 50));
+        jPanel2.add(btn_cadastrar_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 110, 50));
 
         jLabel9.setFont(new java.awt.Font("Andale Mono", 1, 14)); // NOI18N
         jLabel9.setText("CPF");
@@ -239,7 +248,7 @@ public class Tela1 extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Cliente", jPanel1);
@@ -338,6 +347,11 @@ public class Tela1 extends javax.swing.JFrame {
         jPanel5.add(btn_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, 35));
 
         cmboxCarros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmboxCarros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmboxCarrosActionPerformed(evt);
+            }
+        });
         jPanel5.add(cmboxCarros, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 360, 30));
 
         jLabel44.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
@@ -352,7 +366,9 @@ public class Tela1 extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,16 +463,13 @@ public class Tela1 extends javax.swing.JFrame {
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 420, 30));
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 420, 80));
         jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 420, 30));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane4.setViewportView(jTextArea1);
+
+        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 420, 80));
 
         jTabbedPane2.addTab("Notas Fiscais", jPanel3);
 
@@ -722,8 +735,7 @@ public class Tela1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         //JOptionPane.showMessageDialog(null,"Sucesso!");
         
-        //Popular Combobox Carro
-        cmboxCarros.setModel(acesso.popularcmbox());       
+        //Popular Combobox Carr
         
         
     }//GEN-LAST:event_jTabbedPane2MouseClicked
@@ -732,6 +744,14 @@ public class Tela1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jPanel5FocusGained
+
+    private void cmboxCarrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmboxCarrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmboxCarrosActionPerformed
+
+    private void jTabbedPane2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTabbedPane2AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTabbedPane2AncestorAdded
 
     /**
      * @param args the command line arguments
@@ -824,7 +844,6 @@ public class Tela1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -841,12 +860,13 @@ public class Tela1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel jpanel_tabela;
     private javax.swing.JLabel lbl_consulta;

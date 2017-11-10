@@ -5,6 +5,9 @@
  */
 package Telas;
 
+import com.sun.glass.events.WindowEvent;
+import javax.swing.WindowConstants;
+
 /**
  *
  * @author caue
@@ -14,8 +17,12 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    Login telalogin = new Login();
+    
     public Login() {
         initComponents();
+        
     }
 
     /**
@@ -34,7 +41,7 @@ public class Login extends javax.swing.JFrame {
         txtfield_login_username = new javax.swing.JTextField();
         btn_Sair_login = new javax.swing.JButton();
         passwdfield_senha_login = new javax.swing.JPasswordField();
-        jPanel1 = new javax.swing.JPanel();
+        jpanel_login = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
@@ -71,7 +78,7 @@ public class Login extends javax.swing.JFrame {
         btn_Sair_login.setMinimumSize(new java.awt.Dimension(63, 23));
         getContentPane().add(btn_Sair_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 236, 100, 41));
         getContentPane().add(passwdfield_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 290, 28));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 300));
+        getContentPane().add(jpanel_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -80,9 +87,12 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        Tela1 tela = new Tela1();
-        tela.setVisible(true);
+        Menu menu = new Menu();
+        menu.setVisible(true);
         
+        // fechar a merda do login
+        telalogin.dispose();
+       
     }//GEN-LAST:event_btn_Entrar_loginActionPerformed
 
     /**
@@ -126,7 +136,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jpanel_login;
     private javax.swing.JPasswordField passwdfield_senha_login;
     private javax.swing.JTextField txtfield_login_username;
     // End of variables declaration//GEN-END:variables
