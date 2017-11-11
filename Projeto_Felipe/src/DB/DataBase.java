@@ -22,12 +22,15 @@ public class DataBase {
 
     private Connection con;
     private Statement stm;
-    private String logText;
+    private String logText;        
+    
+        
 
     public DataBase() {
         con = null;
-        stm = null;
+        stm = null;        
     }
+    
 
     public void conecta() {
         try {

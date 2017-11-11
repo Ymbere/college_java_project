@@ -7,6 +7,13 @@ package Telas;
 
 import DB.DataBase;
 import Classes.Clientes;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -251,14 +258,28 @@ public class TelaClientes extends javax.swing.JFrame {
         cadcliente.setTelefone(txt_telefone_cliente.getText());
         cadcliente.setEmail(txt_email_cliente.getText());
         cadcliente.setEndereco(txtfield_endereco.getText());
-        acessobanco.conecta();
-        String sql;
-        sql = "INSERT INTO clientes VALUES (DEFAULT,'"
-        +txt_nome_cliente.getText()+"','"+txt_cpf_cliente.getText()+"','"
-        +txt_telefone_cliente.getText() + "','" + txt_email_cliente.getText()
-        +"','" + txtfield_endereco.getText() + "');";
-        acessobanco.inserir(sql);
-        acessobanco.fechaConexao();
+        
+        try{
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
+            con.setAutoCommit(false);
+            try{
+                String query = "INSERT INTO clientes VALUES (?,?,?,?,?)";
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setString(1, txt_cpf_cliente.getText());
+                ps.setString(2, txt_nome_cliente.getText());
+                ps.setString(3, txt_telefone_cliente.getText());
+                ps.setString(4, txt_email_cliente.getText());
+                ps.setString(5, txtfield_endereco.getText());
+                ps.executeUpdate();
+                con.commit();                
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Registro Adicionado");
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                    
         limparTelaClientes();
 
     }//GEN-LAST:event_btn_cadastrar_clienteActionPerformed
