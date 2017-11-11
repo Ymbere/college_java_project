@@ -117,10 +117,6 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-<<<<<<< HEAD
-                new Menu().setVisible(true);
-=======
->>>>>>> 095adb046c4d19ae955286133978d899ab5b4cd9
                 new Menu().setVisible(true);                
             }
         });
