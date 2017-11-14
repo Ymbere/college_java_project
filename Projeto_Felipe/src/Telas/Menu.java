@@ -55,6 +55,11 @@ public class Menu extends javax.swing.JFrame {
         btn_Clientes.setBackground(new java.awt.Color(102, 102, 102));
         btn_Clientes.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
         btn_Clientes.setText("CLIENTES");
+        btn_Clientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ClientesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 100, 40));
 
         btn_Carros.setBackground(new java.awt.Color(102, 102, 102));
@@ -86,6 +91,12 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_ClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClientesActionPerformed
+        TelaClientes telaCliente = new TelaClientes();
+        telaCliente.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_ClientesActionPerformed
 
     /**
      * @param args the command line arguments
