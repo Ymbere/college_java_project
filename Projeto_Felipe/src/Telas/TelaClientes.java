@@ -7,11 +7,11 @@ package Telas;
 
 import DB.DataBase;
 import Classes.Clientes;
-<<<<<<< HEAD
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-=======
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,7 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
->>>>>>> 0439adf11396a369b14beb19e22c415ef7c652e6
+
 
 /**
  *
@@ -265,36 +265,24 @@ public class TelaClientes extends javax.swing.JFrame {
         Clientes cadcliente = new Clientes();
 
         // usando classe para pegar os dados
-        cadcliente.setNome(txt_nome_cliente.getText());
-        cadcliente.setCpf(txt_cpf_cliente.getText());
-        cadcliente.setTelefone(txt_telefone_cliente.getText());
-        cadcliente.setEmail(txt_email_cliente.getText());
-        cadcliente.setEndereco(txtfield_endereco.getText());
-<<<<<<< HEAD
-        acessobanco.conecta();
-        String sql;
-        sql = "INSERT INTO clientes VALUES ('"
-                + cadcliente.getCpf() + "','"
-                + cadcliente.getNome() + "','"
-                + cadcliente.getTelefone() + "','"
-                + cadcliente.getEmail() + "','"
-                + cadcliente.getEndereco() + "');";
+        cadcliente.setNome(txt_nome_cliente.getText().toUpperCase());
+        cadcliente.setCpf(txt_cpf_cliente.getText().toUpperCase());
+        cadcliente.setTelefone(txt_telefone_cliente.getText().toUpperCase());
+        cadcliente.setEmail(txt_email_cliente.getText().toLowerCase());
+        cadcliente.setEndereco(txtfield_endereco.getText().toUpperCase());
 
-        acessobanco.inserir(sql);
-        acessobanco.fechaConexao();
-=======
         
         try{
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
             con.setAutoCommit(false);
             try{
                 String query = "INSERT INTO clientes VALUES (?,?,?,?,?)";
                 PreparedStatement ps = con.prepareStatement(query);
-                ps.setString(1, txt_cpf_cliente.getText());
-                ps.setString(2, txt_nome_cliente.getText());
-                ps.setString(3, txt_telefone_cliente.getText());
-                ps.setString(4, txt_email_cliente.getText());
-                ps.setString(5, txtfield_endereco.getText());
+                ps.setString(1, cadcliente.getCpf());
+                ps.setString(2, cadcliente.getNome());
+                ps.setString(3, cadcliente.getTelefone());
+                ps.setString(4, cadcliente.getEmail());
+                ps.setString(5, cadcliente.getEndereco());
                 ps.executeUpdate();
                 con.commit();                
             } catch (SQLException ex) {
@@ -305,7 +293,7 @@ public class TelaClientes extends javax.swing.JFrame {
             Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
                     
->>>>>>> 0439adf11396a369b14beb19e22c415ef7c652e6
+
         limparTelaClientes();
 
     }//GEN-LAST:event_btn_cadastrar_clienteActionPerformed
