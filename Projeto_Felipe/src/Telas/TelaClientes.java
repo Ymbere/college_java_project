@@ -7,7 +7,9 @@ package Telas;
 
 import DB.DataBase;
 import Classes.Clientes;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,30 +20,37 @@ public class TelaClientes extends javax.swing.JFrame {
     /**
      * Creates new form TelaClientes
      */
-    
     DataBase acessobanco = new DataBase();
-    
-    public void limparTelaClientes(){
-        
+
+    public void travarTxtfieldConsulta() {
+
+        txt_cpf_consulta.setEnabled(false);
+        txt_nome_consulta.setEnabled(false);
+        txt_telefone_consulta.setEnabled(false);
+        txt_email_consulta.setEnabled(false);
+        txt_enderecol_consulta.setEnabled(false);
+    }
+
+    public void destravarTxtfieldConsulta() {
+        txt_cpf_consulta.setEnabled(true);
+        txt_nome_consulta.setEnabled(true);
+        txt_telefone_consulta.setEnabled(true);
+        txt_email_consulta.setEnabled(true);
+        txt_enderecol_consulta.setEnabled(true);
+    }
+
+    public void limparTelaClientes() {
+
         txt_nome_cliente.setText("");
         txt_cpf_cliente.setText("");
         txt_telefone_cliente.setText("");
         txt_email_cliente.setText("");
         txtfield_endereco.setText("");
     }
-    
-    public void travarTxtfieldConsulta(){
-        
-        txt_cpf_consulta.setEnabled(false);
-        txt_nome_consulta.setEnabled(false);
-        txt_telefone_consulta.setEnabled(false);
-        txt_email_consulta.setEnabled(false);
-        txt_enderecol_consulta.setEnabled(false);        
-    }
-    
-    
+
     public TelaClientes() {
         initComponents();
+        travarTxtfieldConsulta();
     }
 
     /**
@@ -241,11 +250,10 @@ public class TelaClientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cadastrar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrar_clienteActionPerformed
-        
+
         Clientes cadcliente = new Clientes();
-        
+
         // usando classe para pegar os dados
-        
         cadcliente.setNome(txt_nome_cliente.getText());
         cadcliente.setCpf(txt_cpf_cliente.getText());
         cadcliente.setTelefone(txt_telefone_cliente.getText());
@@ -253,10 +261,13 @@ public class TelaClientes extends javax.swing.JFrame {
         cadcliente.setEndereco(txtfield_endereco.getText());
         acessobanco.conecta();
         String sql;
-        sql = "INSERT INTO clientes VALUES (DEFAULT,'"
-        +txt_nome_cliente.getText()+"','"+txt_cpf_cliente.getText()+"','"
-        +txt_telefone_cliente.getText() + "','" + txt_email_cliente.getText()
-        +"','" + txtfield_endereco.getText() + "');";
+        sql = "INSERT INTO clientes VALUES ('"
+                + cadcliente.getCpf() + "','"
+                + cadcliente.getNome() + "','"
+                + cadcliente.getTelefone() + "','"
+                + cadcliente.getEmail() + "','"
+                + cadcliente.getEndereco() + "');";
+
         acessobanco.inserir(sql);
         acessobanco.fechaConexao();
         limparTelaClientes();
@@ -265,15 +276,53 @@ public class TelaClientes extends javax.swing.JFrame {
 
     private void btn_editarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarclienteActionPerformed
         // TODO add your handling code here:
+        destravarTxtfieldConsulta();
+
     }//GEN-LAST:event_btn_editarclienteActionPerformed
 
     private void btn_salvar_allteracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvar_allteracoesActionPerformed
         // TODO add your handling code here:
+
+        acessobanco.conecta();
+        String cpf = txt_busca_cpf.getText();
+        String cpfnovo = txt_cpf_consulta.getText();
+        String nome = txt_nome_consulta.getText();
+        String telefone = txt_telefone_consulta.getText();
+        String email = txt_email_consulta.getText();
+        String endereco = txt_enderecol_consulta.getText();
+
+        acessobanco.updateCliente(cpf, cpfnovo, nome, telefone, email, endereco);
+        acessobanco.fechaConexao();
     }//GEN-LAST:event_btn_salvar_allteracoesActionPerformed
 
     private void btn_buscar_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_cpfActionPerformed
         // TODO add your handling code here:
-        
+
+        try {
+            acessobanco.conecta();
+
+            String sql;
+            sql = "SELECT * FROM clientes WHERE cpf = '" + txt_busca_cpf.getText() + "';";
+            ResultSet resultados = acessobanco.consulta(sql);
+
+            destravarTxtfieldConsulta();
+            
+            // ta pulando essa parte do codigo não sei porque
+            
+            txt_nome_consulta.setText(resultados.getString("nome").toUpperCase());
+            txt_cpf_consulta.setText(resultados.getString("cpf").toUpperCase());
+            txt_telefone_consulta.setText(resultados.getString("telefone").toUpperCase());
+            txt_email_consulta.setText(resultados.getString("email").toUpperCase());
+            txt_enderecol_consulta.setText(resultados.getString("endereco").toUpperCase());
+
+        } catch (SQLException sqle) {
+            sqle.getMessage();
+        }
+        finally {
+            acessobanco.fechaConexao();
+            
+        }
+         
     }//GEN-LAST:event_btn_buscar_cpfActionPerformed
 
     /**
@@ -307,8 +356,10 @@ public class TelaClientes extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaClientes().setVisible(true);
+
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

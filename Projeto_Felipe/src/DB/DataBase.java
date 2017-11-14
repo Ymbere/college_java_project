@@ -32,7 +32,7 @@ public class DataBase {
     public void conecta() {
         try {
             Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
+            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
             System.out.println("Conexão bem sucedida!");
             stm = con.createStatement();
         } catch (ClassNotFoundException cnf) {
@@ -79,6 +79,7 @@ public class DataBase {
         ResultSet rs = null;
         try {
             rs = stm.executeQuery(consulta);
+            //JOptionPane.showMessageDialog(null, "Consulta realizada com sucesso!");
         } catch (SQLException e) {
             System.out.println("Exceção: " + e.toString());
         } catch (NullPointerException npe) {
@@ -97,6 +98,26 @@ public class DataBase {
         }
     }
 
+    public void updateCliente(String cpfbusca, String cpfnovo, String nome, String telefone,
+            String email, String endereco){
+        
+        try{
+        String sql = "UPDATE clientes SET " +
+                "cpf = '" + cpfnovo + "'," +
+                "nome = '" + nome + "'," +
+                "telefone = '" + telefone + "'," +
+                "email = '" + email + "'," +
+                "endereco = '" + endereco + "'" +
+                "WHERE cpf = '" + cpfbusca + "';";
+                
+        stm.executeUpdate(sql);
+        
+        JOptionPane.showMessageDialog(null, "Cliente alterado com sucesso!");
+        
+        } catch (SQLException sqle){
+            sqle.getMessage();
+        }
+    }
     public DefaultComboBoxModel popularcmbox() {
         
         DefaultComboBoxModel dcm = new DefaultComboBoxModel();
