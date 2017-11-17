@@ -5,6 +5,16 @@
  */
 package Telas;
 
+import DB.DataBase;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author caue
@@ -14,6 +24,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    DataBase acessobanco = new DataBase();
     
     public Login() {
         initComponents();          
@@ -79,13 +90,60 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_Entrar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Entrar_loginActionPerformed
-        // TODO add your handling code here:
 
-        Menu menu = new Menu();
-        menu.setVisible(true); 
-        dispose();
+        String username_digitado = "ymbere";
+        String passwd_digitado = "root";
+        String username_banco = "ymbere";
+        String passwd_banco = "root";
         
+        try {
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "");
+            con.setAutoCommit(false);
+            try {
+                String SQL = "SELECT usuario, senha FROM usuario WHERE usuario = ? and senha = ?";
+                PreparedStatement ps = con.prepareStatement(SQL);
+                ps.setString(1, txtfield_login_username.getText());
+                ps.setString(2, passwdfield_senha_login.getText());
+                ps.executeUpdate();
+                con.commit();
+                ResultSet rs = ps.getResultSet();
+                username_digitado = txtfield_login_username.getText();
+                passwd_digitado = passwdfield_senha_login.getText();
+                
+                while (rs.next()) {
+                   username_banco = rs.getString("usuario");
+                   passwd_banco = rs.getString("senha");
+                }
+                
+            } catch (SQLException sqle) {
+		sqle.getMessage();
+            }
+        } catch (SQLException sqle) {
+            sqle.getMessage();
+        }
         
+        System.out.println("Username digitado " +username_digitado);
+        System.out.println("Username banco " +username_banco);
+        
+        System.out.println("Senha digitado " +passwd_digitado);
+        System.out.println("Senha banco " +passwd_banco);
+        if(username_banco == username_digitado && passwd_banco == passwd_digitado ){
+            
+            Menu menu = new Menu();
+            menu.setVisible(true);
+            dispose();
+        }else{
+            System.out.println("Nao Foi");
+        }
+        
+        //String username_digitado = txtfield_login_username.getText();
+	//String passwd_digitado = passwdfield_senha_login.getText();
+        
+        //while (rs.next()) {
+          //  username_banco = rs.getString("usuario");
+          //  passwd_banco = rs.getString("senha");
+        //}
+         
     }//GEN-LAST:event_btn_Entrar_loginActionPerformed
 
     /**
