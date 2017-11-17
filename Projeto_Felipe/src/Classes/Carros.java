@@ -11,9 +11,10 @@ package Classes;
  */
 public class Carros {
     
+    private String placa;
+    private String renavan;
     private String modelo;
     private String marca;
-    private String placa;
     private String cor;
     private int ano;
     private String combustivel;
@@ -115,6 +116,20 @@ public class Carros {
      */
     public void setHistorico(String historico) {
         this.historico = historico;
+    }
+
+    /**
+     * @return the renavan
+     */
+    public String getRenavan() {
+        return renavan;
+    }
+
+    /**
+     * @param renavan the renavan to set
+     */
+    public void setRenavan(String renavan) {
+        this.renavan = renavan;
     }
     
 }

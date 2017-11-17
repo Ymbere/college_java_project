@@ -91,7 +91,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btn_Entrar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Entrar_loginActionPerformed
 
-        String username_digitado = "ymbere";
+        String username_digitado = "ymbere"; //Resolver retorno de NULL
         String passwd_digitado = "root";
         String username_banco = "ymbere";
         String passwd_banco = "root";

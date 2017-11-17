@@ -121,7 +121,33 @@ public class DataBase {
         } catch (SQLException sqle){
             sqle.getMessage();
         }
+        
     }
+    
+    public void updateCarro(String placabusca, String renavan, String modelocarro,
+            String marca, String cor, int ano, String combustivel, String historico){
+        
+        try{
+            String sql = "UPDATE carros SET " +
+                    "renavan = '" + renavan + "'," +
+                    "modelocarro = '" + modelocarro + "'," +
+                    "marca = '" + marca + "'," +
+                    "cor = '" + cor + "'," + 
+                    "ano = " + ano + "," +
+                    "combustivel = '" + combustivel + "'," +
+                    "historico = '" + historico + "'" +
+                    "WHERE placa = '" + placabusca + "'";
+            
+            stm.executeUpdate(sql);
+            
+            JOptionPane.showMessageDialog(null, "Alteração feita com sucesso!");
+        }
+        
+        catch (SQLException sqle){
+            sqle.getMessage();
+        }
+    }
+    
     public DefaultComboBoxModel popularcmbox() {
         
         DefaultComboBoxModel dcm = new DefaultComboBoxModel();

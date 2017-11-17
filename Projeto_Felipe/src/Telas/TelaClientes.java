@@ -41,7 +41,7 @@ public class TelaClientes extends javax.swing.JFrame {
     }
 
     public void destravarTxtfieldConsulta() {
-        txt_cpf_consulta.setEnabled(true);
+        
         txt_nome_consulta.setEnabled(true);
         txt_telefone_consulta.setEnabled(true);
         txt_email_consulta.setEnabled(true);
@@ -313,6 +313,7 @@ public class TelaClientes extends javax.swing.JFrame {
 
         acessobanco.updateCliente(cpf, cpfnovo, nome, telefone, email, endereco);
         acessobanco.fechaConexao();
+        travarTxtfieldConsulta();
     }//GEN-LAST:event_btn_salvar_allteracoesActionPerformed
 
     private void btn_buscar_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_cpfActionPerformed
