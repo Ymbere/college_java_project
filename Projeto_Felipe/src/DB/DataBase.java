@@ -35,7 +35,7 @@ public class DataBase {
     public void conecta() {
         try {
             Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
+            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
             System.out.println("Conexão bem sucedida!");
             stm = con.createStatement();
         } catch (ClassNotFoundException cnf) {
@@ -80,6 +80,7 @@ public class DataBase {
 
     public ResultSet consulta(String consulta) {
         ResultSet rs = null;
+        String dado="Vazio";
         try {
             rs = stm.executeQuery(consulta);
             //JOptionPane.showMessageDialog(null, "Consulta realizada com sucesso!");
@@ -87,7 +88,7 @@ public class DataBase {
             System.out.println("Exceção: " + e.toString());
         } catch (NullPointerException npe) {
             System.out.println(npe.toString());
-        }
+        }  
         return rs;
     }
 

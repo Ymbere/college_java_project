@@ -20,8 +20,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
  * @author caue
@@ -271,11 +269,10 @@ public class TelaClientes extends javax.swing.JFrame {
         cadcliente.setEmail(txt_email_cliente.getText().toLowerCase());
         cadcliente.setEndereco(txtfield_endereco.getText().toUpperCase());
 
-        
-        try{
+        try {
             Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
             con.setAutoCommit(false);
-            try{
+            try {
                 String query = "INSERT INTO clientes VALUES (?,?,?,?,?)";
                 PreparedStatement ps = con.prepareStatement(query);
                 ps.setString(1, cadcliente.getCpf());
@@ -284,7 +281,7 @@ public class TelaClientes extends javax.swing.JFrame {
                 ps.setString(4, cadcliente.getEmail());
                 ps.setString(5, cadcliente.getEndereco());
                 ps.executeUpdate();
-                con.commit();                
+                con.commit();
             } catch (SQLException ex) {
                 Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -292,7 +289,6 @@ public class TelaClientes extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
-                    
 
         limparTelaClientes();
 
@@ -326,27 +322,27 @@ public class TelaClientes extends javax.swing.JFrame {
             acessobanco.conecta();
 
             String sql;
-            sql = "SELECT * FROM clientes WHERE cpf = '" + txt_busca_cpf.getText() + "';";
+            sql = "SELECT * FROM clientes WHERE cpf = '" + txt_busca_cpf.getText() + "'";
             ResultSet resultados = acessobanco.consulta(sql);
 
             destravarTxtfieldConsulta();
-            
+
             // ta pulando essa parte do codigo não sei porque
-            
-            txt_nome_consulta.setText(resultados.getString("nome").toUpperCase());
-            txt_cpf_consulta.setText(resultados.getString("cpf").toUpperCase());
-            txt_telefone_consulta.setText(resultados.getString("telefone").toUpperCase());
-            txt_email_consulta.setText(resultados.getString("email").toUpperCase());
-            txt_enderecol_consulta.setText(resultados.getString("endereco").toUpperCase());
+            while (resultados.next()) {
+                txt_nome_consulta.setText(resultados.getString("nome").toUpperCase());
+                txt_cpf_consulta.setText(resultados.getString("cpf").toUpperCase());
+                txt_telefone_consulta.setText(resultados.getString("telefone").toUpperCase());
+                txt_email_consulta.setText(resultados.getString("email").toUpperCase());
+                txt_enderecol_consulta.setText(resultados.getString("endereco").toUpperCase());
+            }
 
         } catch (SQLException sqle) {
             sqle.getMessage();
-        }
-        finally {
+        } finally {
             acessobanco.fechaConexao();
-            
+
         }
-         
+
     }//GEN-LAST:event_btn_buscar_cpfActionPerformed
 
     /**
