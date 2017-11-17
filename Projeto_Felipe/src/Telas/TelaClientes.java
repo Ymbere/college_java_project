@@ -340,6 +340,7 @@ public class TelaClientes extends javax.swing.JFrame {
             sqle.getMessage();
         } finally {
             acessobanco.fechaConexao();
+            travarTxtfieldConsulta();
 
         }
 
