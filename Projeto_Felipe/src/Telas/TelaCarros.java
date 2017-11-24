@@ -94,6 +94,12 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carro_cadrenavan = new javax.swing.JTextField();
         jLabel44 = new javax.swing.JLabel();
         txtfield_carros_cadplaca = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter placa= new javax.swing.text.MaskFormatter("UUU-####");
+            txtfield_carros_cadplaca = new javax.swing.JFormattedTextField(placa);
+        }
+        catch (Exception e){
+        }
         cmbbox_carros_cadmarca = new javax.swing.JComboBox<>();
         btn_cadastrarCarro = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -101,6 +107,12 @@ public class TelaCarros extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         txtfield_carros_getplaca = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter placa= new javax.swing.text.MaskFormatter("UUU-####");
+            txtfield_carros_getplaca = new javax.swing.JFormattedTextField(placa);
+        }
+        catch (Exception e){
+        }
         jLabel36 = new javax.swing.JLabel();
         txtfield_carros_getmodelo = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
@@ -242,6 +254,11 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carros_getplaca.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
         txtfield_carros_getplaca.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtfield_carros_getplaca.setToolTipText("AAA-1234");
+        txtfield_carros_getplaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfield_carros_getplacaActionPerformed(evt);
+            }
+        });
         jPanel2.add(txtfield_carros_getplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 260, 30));
 
         jLabel36.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
@@ -421,6 +438,10 @@ public class TelaCarros extends javax.swing.JFrame {
             travarTxtfieldConsulta();
         }
     }//GEN-LAST:event_btn_buscar_placaActionPerformed
+
+    private void txtfield_carros_getplacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfield_carros_getplacaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfield_carros_getplacaActionPerformed
 
     /**
      * @param args the command line arguments
