@@ -377,9 +377,45 @@ public class TelaCarros extends javax.swing.JFrame {
 
         Carros cadcarro = new Carros();
         
-        cadcarro.setPlaca(txtfield_carros_cadplaca.getText());
+        cadcarro.setPlaca(txtfield_carros_cadplaca.getText().toUpperCase());
+        cadcarro.setRenavan(txtfield_carro_cadrenavan.getText().toUpperCase());
+        cadcarro.setModelo(txtfield_carros_cadmodelo.getText().toUpperCase());
+        cadcarro.setMarca(cmbbox_carros_cadmarca.getSelectedItem().toString().toUpperCase());
+        cadcarro.setCor(txtfield_carros_cadcor.getText().toUpperCase());
+        int ano;
+        ano = Integer.parseInt(txtfield_carros_cadano.getText());
+        cadcarro.setAno(ano);
+        cadcarro.setCombustivel(txtfield_carros_cadcombust.getText().toUpperCase());
+        cadcarro.setHistorico(txtarea_carros_cadhistory.getText().toUpperCase());
         
+        // inserindo no banco
         
+        try {
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
+            con.setAutoCommit(false);
+            try {
+                String query = "INSERT INTO carros VALUES (?,?,?,?,?,?,?,?)";
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setString(1, cadcarro.getPlaca());
+                ps.setString(2, cadcarro.getRenavan());
+                ps.setString(3, cadcarro.getModelo());
+                ps.setString(4, cadcarro.getMarca());
+                ps.setString(5, cadcarro.getCor());
+                ps.setInt(6, cadcarro.getAno());
+                ps.setString(7, cadcarro.getCombustivel());
+                ps.setString(8, cadcarro.getHistorico());                
+                
+                ps.executeUpdate();
+                con.commit();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Registro Adicionado");
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        limparTxtfieldCarro();
 
     }//GEN-LAST:event_btn_cadastrarCarroActionPerformed
 
