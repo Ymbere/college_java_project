@@ -358,6 +358,9 @@ public class TelaCarros extends javax.swing.JFrame {
 
     private void btn_cadastrarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarCarroActionPerformed
 
+        Carros cadcarro = new Carros();
+        
+        cadcarro.setPlaca(txtfield_carros_cadplaca.getText());
         
         
 
