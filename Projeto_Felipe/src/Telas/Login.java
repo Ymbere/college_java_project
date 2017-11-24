@@ -5,6 +5,16 @@
  */
 package Telas;
 
+import DB.DataBase;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author caue
@@ -14,6 +24,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    DataBase acessobanco = new DataBase();
     
     public Login() {
         initComponents();          
@@ -79,15 +90,47 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_Entrar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Entrar_loginActionPerformed
-        // TODO add your handling code here:
+     
+        
+        String valor = new String(passwdfield_senha_login.getPassword());
+        boolean resposta = AutenticaLogin(txtfield_login_username.getText(), valor);
+        if (resposta == true) {
+               Menu menu = new Menu();
+               menu.setVisible(true);
+               dispose();
 
-        Menu menu = new Menu();
-        menu.setVisible(true); 
-        dispose();
-        
-        
+        } else {
+            JOptionPane.showMessageDialog(null, "Login ou Senha inválidos.", "Tente Novamente", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_btn_Entrar_loginActionPerformed
-
+ 
+    public boolean AutenticaLogin(String username_banco, String passwd_banco) {
+        boolean autenticado = false;
+        String sql;
+        try {
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650441");
+            con.setAutoCommit(false);
+            sql = "SELECT usuario,senha FROM login WHERE usuario = ? and senha = ?";
+            PreparedStatement ps;
+            ps = con.prepareStatement(sql);
+            ps.setString(1, txtfield_login_username.getText());
+            ps.setString(2, passwdfield_senha_login.getText());
+            ResultSet rs;
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                username_banco = rs.getString("usuario");
+                passwd_banco = rs.getString("senha");
+                autenticado = true;
+            } else {
+                ps.close();
+                return autenticado;
+            }
+        } catch (SQLException sqle) {
+            sqle.getMessage();
+        }
+        return autenticado;
+    }
     /**
      * @param args the command line arguments
      */
