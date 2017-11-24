@@ -117,7 +117,7 @@ public class TelaClientes extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
         jLabel15.setText("CADASTRAR");
-        jpanel_Clientes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        jpanel_Clientes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Andale Mono", 1, 14)); // NOI18N
         jLabel1.setText("NOME");
@@ -170,7 +170,7 @@ public class TelaClientes extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
         jLabel19.setText("CONSULTAR");
-        jpanel_Clientes1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        jpanel_Clientes1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         btn_editarcliente.setBackground(new java.awt.Color(102, 102, 102));
         btn_editarcliente.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
