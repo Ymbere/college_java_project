@@ -97,11 +97,14 @@ public class Login extends javax.swing.JFrame {
         if (resposta == true) {
                Menu menu = new Menu();
                menu.setVisible(true);
+               menu.SetInstance(txtfield_login_username.getText());
                dispose();
 
         } else {
             JOptionPane.showMessageDialog(null, "Login ou Senha inválidos.", "Tente Novamente", JOptionPane.ERROR_MESSAGE);
         }
+        
+        
 
     }//GEN-LAST:event_btn_Entrar_loginActionPerformed
  
@@ -109,7 +112,7 @@ public class Login extends javax.swing.JFrame {
         boolean autenticado = false;
         String sql;
         try {
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650441");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
             con.setAutoCommit(false);
             sql = "SELECT usuario,senha FROM login WHERE usuario = ? and senha = ?";
             PreparedStatement ps;
