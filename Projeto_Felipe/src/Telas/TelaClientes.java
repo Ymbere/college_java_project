@@ -7,6 +7,9 @@ package Telas;
 
 import DB.DataBase;
 import Classes.Clientes;
+import com.sun.glass.events.WindowEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowListener;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -79,8 +82,20 @@ public class TelaClientes extends javax.swing.JFrame {
         txt_nome_cliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txt_cpf_cliente = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter cpf= new javax.swing.text.MaskFormatter("###.###.###-##");
+            txt_cpf_cliente = new javax.swing.JFormattedTextField(cpf);
+        }
+        catch (Exception e){
+        }
         jLabel10 = new javax.swing.JLabel();
         txt_telefone_cliente = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter telefone= new javax.swing.text.MaskFormatter("(##) #####-####");
+            txt_telefone_cliente = new javax.swing.JFormattedTextField(telefone);
+        }
+        catch (Exception e){
+        }
         jLabel18 = new javax.swing.JLabel();
         txt_email_cliente = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -91,6 +106,12 @@ public class TelaClientes extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         txt_busca_cpf = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter cpf= new javax.swing.text.MaskFormatter("###.###.###-##");
+            txt_busca_cpf = new javax.swing.JFormattedTextField(cpf);
+        }
+        catch (Exception e){
+        }
         jLabel19 = new javax.swing.JLabel();
         btn_editarcliente = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -270,7 +291,7 @@ public class TelaClientes extends javax.swing.JFrame {
         cadcliente.setEndereco(txtfield_endereco.getText().toUpperCase());
 
         try {
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
             con.setAutoCommit(false);
             try {
                 String query = "INSERT INTO clientes VALUES (?,?,?,?,?)";
@@ -315,7 +336,7 @@ public class TelaClientes extends javax.swing.JFrame {
         acessobanco.fechaConexao();
         travarTxtfieldConsulta();
     }//GEN-LAST:event_btn_salvar_allteracoesActionPerformed
-
+   
     private void btn_buscar_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_cpfActionPerformed
         // TODO add your handling code here:
 
