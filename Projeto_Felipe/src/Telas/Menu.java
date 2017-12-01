@@ -18,8 +18,11 @@ public class Menu extends javax.swing.JFrame {
  
 
     public Menu() {
-        initComponents();
-
+        initComponents();      
+    }
+    
+    public void SetInstance(String Instancia){
+        instancia_usuario_logado.setText(Instancia);
     }
 
     /**
@@ -39,6 +42,7 @@ public class Menu extends javax.swing.JFrame {
         btn_Carros = new javax.swing.JButton();
         btn_Servicos = new javax.swing.JButton();
         lbl_usuariologged = new javax.swing.JLabel();
+        instancia_usuario_logado = new javax.swing.JLabel();
 
         javax.swing.GroupLayout tabelaCleinte1Layout = new javax.swing.GroupLayout(tabelaCleinte1.getContentPane());
         tabelaCleinte1.getContentPane().setLayout(tabelaCleinte1Layout);
@@ -82,11 +86,19 @@ public class Menu extends javax.swing.JFrame {
         btn_Servicos.setBackground(new java.awt.Color(102, 102, 102));
         btn_Servicos.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
         btn_Servicos.setText("SERVIÇOS");
+        btn_Servicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ServicosActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Servicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 100, 40));
 
         lbl_usuariologged.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
         lbl_usuariologged.setText("Usuario logado:");
         jPanel1.add(lbl_usuariologged, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
+
+        instancia_usuario_logado.setText("jLabel1");
+        jPanel1.add(instancia_usuario_logado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,7 +108,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -109,6 +121,11 @@ public class Menu extends javax.swing.JFrame {
         telaCliente.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_ClientesActionPerformed
+
+    private void btn_ServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ServicosActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_ServicosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,6 +166,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btn_Carros;
     private javax.swing.JButton btn_Clientes;
     private javax.swing.JButton btn_Servicos;
+    private javax.swing.JLabel instancia_usuario_logado;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel1;

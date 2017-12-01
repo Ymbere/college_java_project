@@ -43,8 +43,15 @@ public class TelaClientes extends javax.swing.JFrame {
         txt_enderecol_consulta.setEnabled(false);
     }
 
+    public void close_operation() {
+        dispose();
+        new Login().setVisible(true);
+    }
+
+    //
+    //setDefaultCloseOperation(close_operaetion);
     public void destravarTxtfieldConsulta() {
-        
+
         txt_nome_consulta.setEnabled(true);
         txt_telefone_consulta.setEnabled(true);
         txt_email_consulta.setEnabled(true);
@@ -127,7 +134,12 @@ public class TelaClientes extends javax.swing.JFrame {
         btn_salvar_allteracoes = new javax.swing.JButton();
         btn_buscar_cpf = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jpanel_Clientes.setBackground(new java.awt.Color(190, 190, 190));
         jpanel_Clientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -137,7 +149,7 @@ public class TelaClientes extends javax.swing.JFrame {
         jpanel_Clientes.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 131, -1));
 
         jLabel15.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
-        jLabel15.setText("CADASTRAR");
+        jLabel15.setText("CADASTRAR CLIENTES");
         jpanel_Clientes.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Andale Mono", 1, 14)); // NOI18N
@@ -336,7 +348,7 @@ public class TelaClientes extends javax.swing.JFrame {
         acessobanco.fechaConexao();
         travarTxtfieldConsulta();
     }//GEN-LAST:event_btn_salvar_allteracoesActionPerformed
-   
+
     private void btn_buscar_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_cpfActionPerformed
         // TODO add your handling code here:
 
@@ -367,6 +379,11 @@ public class TelaClientes extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btn_buscar_cpfActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        new Menu().setVisible(true);
+        System.out.println("Fechando");
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
