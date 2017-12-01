@@ -6,6 +6,7 @@
 package Telas;
 
 import Classes.Servicos;
+import DB.DataBase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -23,6 +24,10 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
     /**
      * Creates new form TelaOrdemDeServico
      */
+    
+    DataBase acessobanco = new DataBase();
+    
+    
     public TelaOrdemDeServico() {
         initComponents();
     }
@@ -363,7 +368,7 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         
         
         try {
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
             con.setAutoCommit(false);
             try {
                 String query = "INSERT INTO servicos VALUES (?,?,?,?,?,?,?,?)";
