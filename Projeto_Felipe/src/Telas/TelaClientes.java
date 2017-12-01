@@ -291,7 +291,7 @@ public class TelaClientes extends javax.swing.JFrame {
         cadcliente.setEndereco(txtfield_endereco.getText().toUpperCase());
 
         try {
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "");
             con.setAutoCommit(false);
             try {
                 String query = "INSERT INTO clientes VALUES (?,?,?,?,?)";
