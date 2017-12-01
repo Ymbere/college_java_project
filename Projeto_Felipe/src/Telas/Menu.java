@@ -81,6 +81,11 @@ public class Menu extends javax.swing.JFrame {
         btn_Carros.setBackground(new java.awt.Color(102, 102, 102));
         btn_Carros.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
         btn_Carros.setText("CARROS");
+        btn_Carros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CarrosActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Carros, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 100, 40));
 
         btn_Servicos.setBackground(new java.awt.Color(102, 102, 102));
@@ -98,7 +103,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(lbl_usuariologged, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
 
         instancia_usuario_logado.setText("jLabel1");
-        jPanel1.add(instancia_usuario_logado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
+        jPanel1.add(instancia_usuario_logado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,8 +129,18 @@ public class Menu extends javax.swing.JFrame {
 
     private void btn_ServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ServicosActionPerformed
         // TODO add your handling code here:
+        TelaOrdemDeServico telaServicos = new TelaOrdemDeServico();
+        telaServicos.setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_btn_ServicosActionPerformed
+
+    private void btn_CarrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CarrosActionPerformed
+        // TODO add your handling code here:
+        TelaCarros telaCarro = new TelaCarros();
+        telaCarro.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_CarrosActionPerformed
 
     /**
      * @param args the command line arguments
