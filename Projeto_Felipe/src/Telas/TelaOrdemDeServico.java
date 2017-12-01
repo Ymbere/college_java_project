@@ -123,6 +123,7 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         btn_atualizar_servicos = new javax.swing.JButton();
         cmbbox_estado_ordem = new javax.swing.JComboBox<>();
         btn_buscar_ordem = new javax.swing.JButton();
+        btn_consultar_editar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -263,11 +264,11 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
                 txt_consultar_cpfActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_consultar_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 300, 30));
+        jPanel2.add(txt_consultar_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 210, 30));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel28.setText("CODIGO FUNCIONÁRIO");
-        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 140, -1));
+        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 140, -1));
 
         txt_consultar_func.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,48 +282,48 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
                 txt_consultar_dataActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_consultar_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 90, 30));
+        jPanel2.add(txt_consultar_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, 90, 30));
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel29.setText("DATA SERVIÇO");
-        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
-        jPanel2.add(txt_consultar_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 210, 30));
+        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
+        jPanel2.add(txt_consultar_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 210, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("PLACA CARRO");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel30.setText("DESCRIÇÃO");
-        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         txtarea_consultar_desc.setColumns(20);
         txtarea_consultar_desc.setRows(5);
         jScrollPane5.setViewportView(txtarea_consultar_desc);
 
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 490, 120));
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 490, 120));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("MÃO DE OBRA");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, 20));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, 20));
 
         txt_consultar_mobra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_consultar_mobraActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_consultar_mobra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 320, 30));
+        jPanel2.add(txt_consultar_mobra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 190, 30));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("VALOR TOTAL");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
 
         txt_consultar_valor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_consultar_valorActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_consultar_valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 320, 30));
+        jPanel2.add(txt_consultar_valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 180, 30));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("NUMERO ORDEM");
@@ -330,16 +331,16 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
 
         btn_atualizar_servicos.setBackground(new java.awt.Color(102, 102, 102));
         btn_atualizar_servicos.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
-        btn_atualizar_servicos.setText("CADASTRAR");
+        btn_atualizar_servicos.setText("ATUALIZAR");
         btn_atualizar_servicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_atualizar_servicosActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_atualizar_servicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 140, 80));
+        jPanel2.add(btn_atualizar_servicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 120, 60));
 
         cmbbox_estado_ordem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Em Aberto", "Fechado" }));
-        jPanel2.add(cmbbox_estado_ordem, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 180, 30));
+        jPanel2.add(cmbbox_estado_ordem, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 210, 30));
 
         btn_buscar_ordem.setBackground(new java.awt.Color(102, 102, 102));
         btn_buscar_ordem.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
@@ -351,6 +352,16 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         });
         jPanel2.add(btn_buscar_ordem, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, 50, 30));
 
+        btn_consultar_editar.setBackground(new java.awt.Color(102, 102, 102));
+        btn_consultar_editar.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        btn_consultar_editar.setText("EDITAR");
+        btn_consultar_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultar_editarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_consultar_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 120, 60));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -359,7 +370,7 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Consultar", jPanel1);
@@ -419,22 +430,24 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         ordem.setMaoDeObra(maodeobra);
         double valortotal;
         valortotal = Double.parseDouble(txt_servico_valor.getText());
+        ordem.setValorTotal(valortotal);
         
         
         try {
             Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
             con.setAutoCommit(false);
             try {
-                String query = "INSERT INTO servicos VALUES (?,?,?,?,?,?,?,?)";
+                String query = "INSERT INTO servicos VALUES (?,?,?,?,?,?,?,?,?)";
                 PreparedStatement ps = con.prepareStatement(query);
                 ps.setInt(1, ordem.getNumeroOrdem());
                 ps.setString(2, ordem.getCpf());
                 ps.setInt(3, ordem.getCodigoFuncionario());
                 ps.setString(4, ordem.getPlacaCarro());
-                ps.setString(5, ordem.getDescricao());
-                ps.setString(6, ordem.getDataServico());
-                ps.setDouble(7, ordem.getMaoDeObra());
-                ps.setDouble(8, ordem.getValorTotal());
+                ps.setString(5, ordem.getEstado());
+                ps.setString(6, ordem.getDescricao());
+                ps.setString(7, ordem.getDataServico());
+                ps.setDouble(8, ordem.getMaoDeObra());
+                ps.setDouble(9, ordem.getValorTotal());
                 
                 ps.executeUpdate();
                 con.commit();
@@ -508,21 +521,20 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
                 txt_consultar_data.setText(resultados.getString("data_servico"));
                 txt_consultar_mobra.setText(String.valueOf(resultados.getDouble("maodeobra")));
                 txt_consultar_valor.setText(String.valueOf(resultados.getDouble("valortotal")));
-                txt_nome_consulta.setText(resultados.getString("nome").toUpperCase());
-                txt_cpf_consulta.setText(resultados.getString("cpf").toUpperCase());
-                txt_telefone_consulta.setText(resultados.getString("telefone").toUpperCase());
-                txt_email_consulta.setText(resultados.getString("email").toUpperCase());
-                txt_enderecol_consulta.setText(resultados.getString("endereco").toUpperCase());
             }
 
         } catch (SQLException sqle) {
             sqle.getMessage();
         } finally {
             acessobanco.fechaConexao();
-            travarTxtfieldConsulta();
-
+            travarTelaConsuta();
         }
     }//GEN-LAST:event_btn_buscar_ordemActionPerformed
+
+    private void btn_consultar_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_editarActionPerformed
+        // TODO add your handling code here:
+        destravarTelaConsulta();
+    }//GEN-LAST:event_btn_consultar_editarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -563,6 +575,7 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
     private javax.swing.JButton btn_atualizar_servicos;
     private javax.swing.JButton btn_buscar_ordem;
     private javax.swing.JButton btn_cad_ordemservico;
+    private javax.swing.JButton btn_consultar_editar;
     private javax.swing.JComboBox<String> cmbbox_estado_ordem;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel17;
