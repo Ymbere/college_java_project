@@ -5,6 +5,15 @@
  */
 package Telas;
 
+import Classes.Servicos;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ymber
@@ -17,6 +26,18 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
     public TelaOrdemDeServico() {
         initComponents();
     }
+    
+    public void limparTelaCadastro(){
+        
+        txt_numero_ordem.setText("");
+        txt_servico_cpf.setText("");
+        txt_servico_data.setText("");
+        txt_servico_func.setText("");
+        txt_servico_mdeobra.setText("");
+        txt_servico_placa.setText("");
+        txt_servico_valor.setText("");
+        txtarea_servico_desc.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,6 +48,7 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -38,150 +60,364 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         txt_numero_ordem = new javax.swing.JTextField();
-        txt_id_funcionario = new javax.swing.JTextField();
-        btn_cadastrar_nota = new javax.swing.JButton();
-        txt_data_solicitacao1 = new javax.swing.JTextField();
-        txt_id_funcionario2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        txt_servico_mdeobra = new javax.swing.JTextField();
+        txt_servico_func = new javax.swing.JTextField();
+        txt_servico_data = new javax.swing.JTextField();
+        txt_servico_placa = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        txt_data_solicitacao2 = new javax.swing.JTextField();
+        txtarea_servico_desc = new javax.swing.JTextArea();
+        txt_servico_cpf = new javax.swing.JTextField();
+        btn_cad_ordemservico = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txt_servico_valor = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txt_numero_ordem1 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        txt_servico_cpf1 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        txt_servico_func1 = new javax.swing.JTextField();
+        txt_servico_data1 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        txt_servico_placa1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtarea_servico_desc1 = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
+        txt_servico_mdeobra1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txt_servico_valor1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane2.setBackground(new java.awt.Color(190, 190, 190));
 
         jPanel3.setBackground(new java.awt.Color(190, 190, 190));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("NUMERO ORDEM");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("PLACA CARRO");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setText("VALOR TOTAL");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
+        jLabel5.setText("MÃO DE OBRA");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, 20));
 
         jLabel17.setFont(new java.awt.Font("Thumbs Down", 1, 24)); // NOI18N
         jLabel17.setText("ItCars");
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 131, -1));
 
         jLabel18.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
-        jLabel18.setText("notas fiscais");
+        jLabel18.setText("emitir servico");
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 46, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel23.setText("CPF");
-        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel24.setText("CODIGO FUNCIONÁRIO");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 140, -1));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel25.setText("DESCRIÇÃO");
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("DATA SERVIÇO");
-        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
 
         txt_numero_ordem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_numero_ordemActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_numero_ordem, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 47, 30));
+        jPanel3.add(txt_numero_ordem, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 100, 30));
 
-        txt_id_funcionario.addActionListener(new java.awt.event.ActionListener() {
+        txt_servico_mdeobra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_id_funcionarioActionPerformed(evt);
+                txt_servico_mdeobraActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_id_funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 270, 30));
+        jPanel3.add(txt_servico_mdeobra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 320, 30));
 
-        btn_cadastrar_nota.setBackground(new java.awt.Color(102, 102, 102));
-        btn_cadastrar_nota.setText("CADASTRAR");
-        btn_cadastrar_nota.addActionListener(new java.awt.event.ActionListener() {
+        txt_servico_func.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastrar_notaActionPerformed(evt);
+                txt_servico_funcActionPerformed(evt);
             }
         });
-        jPanel3.add(btn_cadastrar_nota, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, 120, 80));
+        jPanel3.add(txt_servico_func, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 80, 30));
 
-        txt_data_solicitacao1.addActionListener(new java.awt.event.ActionListener() {
+        txt_servico_data.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_data_solicitacao1ActionPerformed(evt);
+                txt_servico_dataActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_data_solicitacao1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 210, 30));
+        jPanel3.add(txt_servico_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 80, 30));
+        jPanel3.add(txt_servico_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 210, 30));
 
-        txt_id_funcionario2.addActionListener(new java.awt.event.ActionListener() {
+        txtarea_servico_desc.setColumns(20);
+        txtarea_servico_desc.setRows(5);
+        jScrollPane4.setViewportView(txtarea_servico_desc);
+
+        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 480, 120));
+
+        txt_servico_cpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_id_funcionario2ActionPerformed(evt);
+                txt_servico_cpfActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_id_funcionario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 80, 30));
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 390, 30));
+        jPanel3.add(txt_servico_cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 300, 30));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane4.setViewportView(jTextArea1);
-
-        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 420, 80));
-
-        txt_data_solicitacao2.addActionListener(new java.awt.event.ActionListener() {
+        btn_cad_ordemservico.setBackground(new java.awt.Color(102, 102, 102));
+        btn_cad_ordemservico.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
+        btn_cad_ordemservico.setText("CADASTRAR");
+        btn_cad_ordemservico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_data_solicitacao2ActionPerformed(evt);
+                btn_cad_ordemservicoActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_data_solicitacao2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 210, 30));
+        jPanel3.add(btn_cad_ordemservico, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 140, 80));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("VALOR TOTAL");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+
+        txt_servico_valor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_servico_valorActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txt_servico_valor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 320, 30));
+
+        jTabbedPane2.addTab("Emitir", jPanel3);
+
+        jPanel2.setBackground(new java.awt.Color(190, 190, 190));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setFont(new java.awt.Font("Thumbs Down", 1, 24)); // NOI18N
+        jLabel19.setText("ItCars");
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 131, -1));
+
+        jLabel20.setFont(new java.awt.Font("Thumbs Down", 1, 10)); // NOI18N
+        jLabel20.setText("consultar servico");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 46, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("NUMERO ORDEM");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
+
+        txt_numero_ordem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_numero_ordem1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_numero_ordem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 100, 30));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel27.setText("CPF");
+        jPanel2.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+
+        txt_servico_cpf1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_servico_cpf1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_servico_cpf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 300, 30));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel28.setText("CODIGO FUNCIONÁRIO");
+        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 140, -1));
+
+        txt_servico_func1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_servico_func1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_servico_func1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 80, 30));
+
+        txt_servico_data1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_servico_data1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_servico_data1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 80, 30));
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel29.setText("DATA SERVIÇO");
+        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
+        jPanel2.add(txt_servico_placa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 210, 30));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("PLACA CARRO");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel30.setText("DESCRIÇÃO");
+        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        txtarea_servico_desc1.setColumns(20);
+        txtarea_servico_desc1.setRows(5);
+        jScrollPane5.setViewportView(txtarea_servico_desc1);
+
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 480, 120));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("MÃO DE OBRA");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, 20));
+
+        txt_servico_mdeobra1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_servico_mdeobra1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_servico_mdeobra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 320, 30));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("VALOR TOTAL");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+
+        txt_servico_valor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_servico_valor1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_servico_valor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 320, 30));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Consultar", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_data_solicitacao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_data_solicitacao2ActionPerformed
+    private void txt_servico_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_cpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_data_solicitacao2ActionPerformed
+    }//GEN-LAST:event_txt_servico_cpfActionPerformed
 
-    private void txt_id_funcionario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_funcionario2ActionPerformed
+    private void txt_servico_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_dataActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_id_funcionario2ActionPerformed
+    }//GEN-LAST:event_txt_servico_dataActionPerformed
 
-    private void txt_data_solicitacao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_data_solicitacao1ActionPerformed
+    private void txt_servico_funcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_funcActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_data_solicitacao1ActionPerformed
+    }//GEN-LAST:event_txt_servico_funcActionPerformed
 
-    private void btn_cadastrar_notaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrar_notaActionPerformed
+    private void txt_servico_mdeobraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_mdeobraActionPerformed
         // TODO add your handling code here:
-        /* acesso.conecta();
-        String pedido;
-        pedido = "insert into tb_notas_fiscais (ordemnumero, idcliente, idfuncionario, datasolicitacao, dataprevisaoconclusao, descricao) values ('"+txt_numero_ordem.getText()+"','"+txt_id_cliente.getText()+"','"+txt_id_funcionario.getText()+"', '"+txt_data_solicitacao.getText()+"', '"+txt_data_conclusao.getText()+"', '"+txt_descricao.getText()+"')";
-        acesso.executa(pedido);
-        acesso.fechaConexao();
-        */
-    }//GEN-LAST:event_btn_cadastrar_notaActionPerformed
-
-    private void txt_id_funcionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_funcionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_id_funcionarioActionPerformed
+    }//GEN-LAST:event_txt_servico_mdeobraActionPerformed
 
     private void txt_numero_ordemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numero_ordemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_numero_ordemActionPerformed
+
+    private void btn_cad_ordemservicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cad_ordemservicoActionPerformed
+
+        
+        Servicos ordem = new Servicos();
+        
+        int numero;
+        numero = Integer.parseInt(txt_numero_ordem.getText());
+        ordem.setNumeroOrdem(numero);
+        ordem.setCpf(txt_servico_cpf.getText());
+        int codigo;
+        codigo = Integer.parseInt(txt_servico_func.getText());
+        ordem.setCodigoFuncionario(codigo);
+        ordem.setPlacaCarro(txt_servico_placa.getText());
+        ordem.setDescricao(txtarea_servico_desc.getText());
+        ordem.setDataServico(txt_servico_data.getText());
+        ordem.setEstado("Em Aberto");
+        double maodeobra;
+        maodeobra = Double.parseDouble(txt_servico_mdeobra.getText());
+        ordem.setMaoDeObra(maodeobra);
+        double valortotal;
+        valortotal = Double.parseDouble(txt_servico_valor.getText());
+        
+        
+        try {
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
+            con.setAutoCommit(false);
+            try {
+                String query = "INSERT INTO servicos VALUES (?,?,?,?,?,?,?,?)";
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setInt(1, ordem.getNumeroOrdem());
+                ps.setString(2, ordem.getCpf());
+                ps.setInt(3, ordem.getCodigoFuncionario());
+                ps.setString(4, ordem.getPlacaCarro());
+                ps.setString(5, ordem.getDescricao());
+                ps.setString(6, ordem.getDataServico());
+                ps.setDouble(7, ordem.getMaoDeObra());
+                ps.setDouble(8, ordem.getValorTotal());
+                
+                ps.executeUpdate();
+                con.commit();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null,"Erro ao inserir");
+            }
+            JOptionPane.showMessageDialog(null, "Registro Adicionado");
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        limparTelaCadastro();
+    }//GEN-LAST:event_btn_cad_ordemservicoActionPerformed
+
+    private void txt_servico_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_valorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_servico_valorActionPerformed
+
+    private void txt_numero_ordem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numero_ordem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_numero_ordem1ActionPerformed
+
+    private void txt_servico_cpf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_cpf1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_servico_cpf1ActionPerformed
+
+    private void txt_servico_func1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_func1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_servico_func1ActionPerformed
+
+    private void txt_servico_data1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_data1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_servico_data1ActionPerformed
+
+    private void txt_servico_mdeobra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_mdeobra1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_servico_mdeobra1ActionPerformed
+
+    private void txt_servico_valor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_valor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_servico_valor1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,24 +455,48 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cadastrar_nota;
+    private javax.swing.JButton btn_cad_ordemservico;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField txt_data_solicitacao1;
-    private javax.swing.JTextField txt_data_solicitacao2;
-    private javax.swing.JTextField txt_id_funcionario;
-    private javax.swing.JTextField txt_id_funcionario2;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField txt_numero_ordem;
+    private javax.swing.JTextField txt_numero_ordem1;
+    private javax.swing.JTextField txt_servico_cpf;
+    private javax.swing.JTextField txt_servico_cpf1;
+    private javax.swing.JTextField txt_servico_data;
+    private javax.swing.JTextField txt_servico_data1;
+    private javax.swing.JTextField txt_servico_func;
+    private javax.swing.JTextField txt_servico_func1;
+    private javax.swing.JTextField txt_servico_mdeobra;
+    private javax.swing.JTextField txt_servico_mdeobra1;
+    private javax.swing.JTextField txt_servico_placa;
+    private javax.swing.JTextField txt_servico_placa1;
+    private javax.swing.JTextField txt_servico_valor;
+    private javax.swing.JTextField txt_servico_valor1;
+    private javax.swing.JTextArea txtarea_servico_desc;
+    private javax.swing.JTextArea txtarea_servico_desc1;
     // End of variables declaration//GEN-END:variables
 }
