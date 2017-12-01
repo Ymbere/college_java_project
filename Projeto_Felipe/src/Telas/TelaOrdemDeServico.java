@@ -30,6 +30,7 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
     
     public TelaOrdemDeServico() {
         initComponents();
+        travarTelaConsuta();
     }
     
     public void limparTelaCadastro(){
@@ -58,11 +59,11 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
     
     public void destravarTelaConsulta(){
         
-        txt_consultar_cpf.setEnabled(true);
+        txt_consultar_cpf.setEnabled(false);
         txt_consultar_data.setEnabled(true);
-        txt_consultar_func.setEnabled(true);
+        txt_consultar_func.setEnabled(false);
         txt_consultar_mobra.setEnabled(true);
-        txt_consultar_placa.setEnabled(true);
+        txt_consultar_placa.setEnabled(false);
         txt_consultar_valor.setEnabled(true);
         cmbbox_estado_ordem.setEnabled(true);
         txtarea_consultar_desc.setEnabled(true);
@@ -493,6 +494,22 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
 
     private void btn_atualizar_servicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizar_servicosActionPerformed
         // TODO add your handling code here:
+        
+        
+        acessobanco.conecta();
+        
+        int numeroordem = Integer.parseInt(txt_consultar_nordem.getText());
+        String estado = cmbbox_estado_ordem.getSelectedItem().toString();
+        String descricao = txtarea_consultar_desc.getText();
+        String data = txt_consultar_data.getText();
+        Double maoDeObra = Double.parseDouble(txt_consultar_mobra.getText());
+        Double valorTotal = Double.parseDouble(txt_consultar_valor.getText());
+        
+        acessobanco.updateOrdemServico(numeroordem, estado, descricao, data, maoDeObra, valorTotal);
+        acessobanco.fechaConexao();
+        travarTelaConsuta();
+        
+        
     }//GEN-LAST:event_btn_atualizar_servicosActionPerformed
 
     private void btn_buscar_ordemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_ordemActionPerformed

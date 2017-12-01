@@ -148,6 +148,28 @@ public class DataBase {
         }
     }
     
+    public void updateOrdemServico(int numeroOrdem, String estado, String descricao,
+            String data_servico, Double maoDeObra, Double valorTotal){
+        
+        try{
+            String sql = "UPDATE servicos SET " +
+                    "estado = '" + estado + "'," +
+                    "descricao = '" + descricao + "'," +
+                    "data_servico = '" + data_servico + "'," +
+                    "maodeobra = " + maoDeObra + "," +
+                    "valortotal = " + valorTotal +
+                    "WHERE ordemnumero = " + numeroOrdem + ";";
+            
+            stm.executeUpdate(sql);
+            
+            JOptionPane.showMessageDialog(null, "Alteração feita com sucesso!");
+        } 
+        catch (SQLException sqle){
+            sqle.getMessage();
+        }
+        
+    }
+    
     public DefaultComboBoxModel popularcmbox() {
         
         DefaultComboBoxModel dcm = new DefaultComboBoxModel();
