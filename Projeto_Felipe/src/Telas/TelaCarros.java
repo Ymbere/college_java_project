@@ -391,7 +391,7 @@ public class TelaCarros extends javax.swing.JFrame {
         // inserindo no banco
         
         try {
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
             con.setAutoCommit(false);
             try {
                 String query = "INSERT INTO carros VALUES (?,?,?,?,?,?,?,?)";
@@ -435,7 +435,7 @@ public class TelaCarros extends javax.swing.JFrame {
         String novo_marca = txtfield_carros_getmarca.getText().toUpperCase();
         String novo_cor = txtfield_carros_getcor.getText().toUpperCase();
         int novo_ano = Integer.parseInt(txtfield_carros_getano.getText());
-        String novo_combustivel = txtarea_carros_gethistory.getText().toUpperCase();
+        String novo_combustivel = txtfield_carros_getcombust.getText().toUpperCase();
         String novo_historico = txtarea_carros_gethistory.getText().toUpperCase();
         
 
