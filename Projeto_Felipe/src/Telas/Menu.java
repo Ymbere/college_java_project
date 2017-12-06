@@ -34,7 +34,6 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tabelaCleinte1 = new Telas.TabelaCleinte();
         jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -43,17 +42,6 @@ public class Menu extends javax.swing.JFrame {
         btn_Servicos = new javax.swing.JButton();
         lbl_usuariologged = new javax.swing.JLabel();
         instancia_usuario_logado = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout tabelaCleinte1Layout = new javax.swing.GroupLayout(tabelaCleinte1.getContentPane());
-        tabelaCleinte1.getContentPane().setLayout(tabelaCleinte1Layout);
-        tabelaCleinte1Layout.setHorizontalGroup(
-            tabelaCleinte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        tabelaCleinte1Layout.setVerticalGroup(
-            tabelaCleinte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,6 +174,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_usuariologged;
-    private Telas.TabelaCleinte tabelaCleinte1;
     // End of variables declaration//GEN-END:variables
 }
