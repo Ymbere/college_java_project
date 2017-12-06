@@ -132,7 +132,12 @@ public class TelaCarros extends javax.swing.JFrame {
         btn_atualizarCarro = new javax.swing.JButton();
         btn_buscar_placa = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(190, 190, 190));
         jPanel5.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -481,6 +486,11 @@ public class TelaCarros extends javax.swing.JFrame {
     private void txtfield_carros_getplacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfield_carros_getplacaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtfield_carros_getplacaActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        new Menu().setVisible(true);
+        System.out.println("Fechando");
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
