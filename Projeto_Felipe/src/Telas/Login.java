@@ -112,7 +112,7 @@ public class Login extends javax.swing.JFrame {
         boolean autenticado = false;
         String sql;
         try {
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
             con.setAutoCommit(false);
             sql = "SELECT usuario,senha FROM login WHERE usuario = ? and senha = ?";
             PreparedStatement ps;

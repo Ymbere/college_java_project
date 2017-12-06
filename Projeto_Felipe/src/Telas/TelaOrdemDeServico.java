@@ -126,7 +126,12 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         btn_buscar_ordem = new javax.swing.JButton();
         btn_consultar_editar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jTabbedPane2.setBackground(new java.awt.Color(190, 190, 190));
 
@@ -552,6 +557,11 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         // TODO add your handling code here:
         destravarTelaConsulta();
     }//GEN-LAST:event_btn_consultar_editarActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        new Menu().setVisible(true);
+        System.out.println("Fechando");
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

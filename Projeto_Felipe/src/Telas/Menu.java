@@ -34,7 +34,6 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tabelaCleinte1 = new Telas.TabelaCleinte();
         jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -43,17 +42,6 @@ public class Menu extends javax.swing.JFrame {
         btn_Servicos = new javax.swing.JButton();
         lbl_usuariologged = new javax.swing.JLabel();
         instancia_usuario_logado = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout tabelaCleinte1Layout = new javax.swing.GroupLayout(tabelaCleinte1.getContentPane());
-        tabelaCleinte1.getContentPane().setLayout(tabelaCleinte1Layout);
-        tabelaCleinte1Layout.setHorizontalGroup(
-            tabelaCleinte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        tabelaCleinte1Layout.setVerticalGroup(
-            tabelaCleinte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,7 +91,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(lbl_usuariologged, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
 
         instancia_usuario_logado.setText("jLabel1");
-        jPanel1.add(instancia_usuario_logado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
+        jPanel1.add(instancia_usuario_logado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,12 +117,16 @@ public class Menu extends javax.swing.JFrame {
 
     private void btn_ServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ServicosActionPerformed
         // TODO add your handling code here:
+        TelaOrdemDeServico telaServicos = new TelaOrdemDeServico();
+        telaServicos.setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_btn_ServicosActionPerformed
 
     private void btn_CarrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CarrosActionPerformed
-        TelaCarros telaCarros = new TelaCarros();
-        telaCarros.setVisible(true);
+        // TODO add your handling code here:
+        TelaCarros telaCarro = new TelaCarros();
+        telaCarro.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_CarrosActionPerformed
 
@@ -182,6 +174,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_usuariologged;
-    private Telas.TabelaCleinte tabelaCleinte1;
     // End of variables declaration//GEN-END:variables
 }

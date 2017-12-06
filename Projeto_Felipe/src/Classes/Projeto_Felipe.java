@@ -5,7 +5,7 @@
  */
 package Classes;
 
-import Telas.Tela1;
+import Telas.Login;
 import DB.DataBase;
 
 /**
@@ -19,8 +19,8 @@ public class Projeto_Felipe {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Tela1 tela = new Tela1();
-        tela.setVisible(true);
-        tela.setDefaultCloseOperation(tela.EXIT_ON_CLOSE);       
+        Login login = new Login();
+        login.setVisible(true);
+        login.setDefaultCloseOperation(login.EXIT_ON_CLOSE);       
     }    
 }
