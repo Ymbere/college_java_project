@@ -391,7 +391,7 @@ public class TelaCarros extends javax.swing.JFrame {
         // inserindo no banco
         
         try {
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "1650424");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
             con.setAutoCommit(false);
             try {
                 String query = "INSERT INTO carros VALUES (?,?,?,?,?,?,?,?)";

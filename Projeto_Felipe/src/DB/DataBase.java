@@ -80,7 +80,7 @@ public class DataBase {
 
     public ResultSet consulta(String consulta) {
         ResultSet rs = null;
-        String dado="Vazio";
+        String dado ="Vazio";
         try {
             rs = stm.executeQuery(consulta);
             //JOptionPane.showMessageDialog(null, "Consulta realizada com sucesso!");
