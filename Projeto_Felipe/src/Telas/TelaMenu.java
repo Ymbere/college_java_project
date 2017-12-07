@@ -4,27 +4,32 @@
  * and open the template in the editor.
  */
 package Telas;
+import Classes.Menu;
 
 
 /**
  *
  * @author caue
  */
-public class Menu extends javax.swing.JFrame {
+public class TelaMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
  
+    Menu menu = new Menu();
 
-    public Menu() {
-        initComponents();      
+    public TelaMenu() {
+        initComponents();                 
     }
     
     public void SetInstance(String Instancia){
         instancia_usuario_logado.setText(Instancia);
     }
-
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,13 +116,16 @@ public class Menu extends javax.swing.JFrame {
 
     private void btn_ClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClientesActionPerformed
         TelaClientes telaCliente = new TelaClientes();
+        telaCliente.armazenaInstancia(instancia_usuario_logado.getText());
         telaCliente.setVisible(true);
+       // System.out.println(menu.get);
         dispose();
     }//GEN-LAST:event_btn_ClientesActionPerformed
 
     private void btn_ServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ServicosActionPerformed
         // TODO add your handling code here:
         TelaOrdemDeServico telaServicos = new TelaOrdemDeServico();
+        telaServicos.armazenaInstancia(instancia_usuario_logado.getText());
         telaServicos.setVisible(true);
         dispose();
         
@@ -126,6 +134,7 @@ public class Menu extends javax.swing.JFrame {
     private void btn_CarrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CarrosActionPerformed
         // TODO add your handling code here:
         TelaCarros telaCarro = new TelaCarros();
+        telaCarro.armazenaInstancia(instancia_usuario_logado.getText());
         telaCarro.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_CarrosActionPerformed
@@ -147,20 +156,21 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);                
+                new TelaMenu().setVisible(true);   
             }
         });
     }

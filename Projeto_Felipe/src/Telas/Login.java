@@ -6,6 +6,7 @@
 package Telas;
 
 import DB.DataBase;
+import Classes.Menu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -95,9 +96,13 @@ public class Login extends javax.swing.JFrame {
         String valor = new String(passwdfield_senha_login.getPassword());
         boolean resposta = AutenticaLogin(txtfield_login_username.getText(), valor);
         if (resposta == true) {
-               Menu menu = new Menu();
+               TelaMenu menu = new TelaMenu();
+               Menu classe_menu = new Menu();
+               
+               classe_menu.setInstancia(txtfield_login_username.getText());
+               
                menu.setVisible(true);
-               menu.SetInstance(txtfield_login_username.getText());
+               menu.SetInstance(classe_menu.getInstancia());
                dispose();
 
         } else {

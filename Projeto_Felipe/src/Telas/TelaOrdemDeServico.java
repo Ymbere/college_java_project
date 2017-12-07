@@ -6,6 +6,7 @@
 package Telas;
 
 import Classes.Servicos;
+import Classes.Menu;
 import DB.DataBase;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,6 +28,7 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
      */
     
     DataBase acessobanco = new DataBase();
+    Menu classeMenu = new Menu();
     
     public TelaOrdemDeServico() {
         initComponents();
@@ -44,6 +46,11 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         txt_servico_valor.setText("");
         txtarea_servico_desc.setText("");
     }
+    
+    public void armazenaInstancia(String instancia) {
+        classeMenu.setInstancia(instancia);
+    }
+
 
     public void travarTelaConsuta(){
         
@@ -559,7 +566,9 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_consultar_editarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        new Menu().setVisible(true);
+        TelaMenu telaMenu = new TelaMenu();        
+        telaMenu.SetInstance(classeMenu.getInstancia()); 
+        telaMenu.setVisible(true);
         System.out.println("Fechando");
     }//GEN-LAST:event_formWindowClosing
 
