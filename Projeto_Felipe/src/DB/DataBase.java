@@ -168,31 +168,6 @@ public class DataBase {
             sqle.getMessage();
         }
         
-    }
-    
-    public DefaultComboBoxModel popularcmbox() {
-        
-        DefaultComboBoxModel dcm = new DefaultComboBoxModel();
-        try{
-        List<String> carrolist = new ArrayList<>();
-        String query = "SELECT * FROM carros;";
-        PreparedStatement ps = con.prepareStatement(query);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            carrolist.add(rs.getString("modelocarro"));
-        }
-        
-        dcm.addElement(carrolist.toArray());    
-       
-        
-        ps.close();
-        
-        return dcm;  
-        
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            return dcm;
-        }
-    }
+    }      
+     
 }

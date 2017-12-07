@@ -12,7 +12,7 @@ package Classes;
 public class Carros {
     
     private String placa;
-    private String renavan;
+    private String renavam;
     private String modelo;
     private String marca;
     private String cor;
@@ -119,17 +119,17 @@ public class Carros {
     }
 
     /**
-     * @return the renavan
+     * @return the renavam
      */
     public String getRenavan() {
-        return renavan;
+        return renavam;
     }
 
     /**
-     * @param renavan the renavan to set
+     * @param renavam the renavam to set
      */
-    public void setRenavan(String renavan) {
-        this.renavan = renavan;
+    public void setRenavan(String renavam) {
+        this.renavam = renavam;
     }
     
 }
