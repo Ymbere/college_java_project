@@ -309,26 +309,21 @@ public class TelaClientes extends javax.swing.JFrame {
         cadcliente.setEmail(txt_email_cliente.getText().toLowerCase());
         cadcliente.setEndereco(txtfield_endereco.getText().toUpperCase());
 
+        Connection con = acessobanco.getConnection(); 
         try {
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itcars", "postgres", "root");
-            con.setAutoCommit(false);
-            try {
-                String query = "INSERT INTO clientes VALUES (?,?,?,?,?)";
-                PreparedStatement ps = con.prepareStatement(query);
-                ps.setString(1, cadcliente.getCpf());
-                ps.setString(2, cadcliente.getNome());
-                ps.setString(3, cadcliente.getTelefone());
-                ps.setString(4, cadcliente.getEmail());
-                ps.setString(5, cadcliente.getEndereco());
-                ps.executeUpdate();
-                con.commit();
-            } catch (SQLException ex) {
-                Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JOptionPane.showMessageDialog(null, "Registro Adicionado");
+            String query = "INSERT INTO clientes VALUES (?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, cadcliente.getCpf());
+            ps.setString(2, cadcliente.getNome());
+            ps.setString(3, cadcliente.getTelefone());
+            ps.setString(4, cadcliente.getEmail());
+            ps.setString(5, cadcliente.getEndereco());
+            ps.executeUpdate();
+            con.commit();
         } catch (SQLException ex) {
             Logger.getLogger(TelaClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
+        JOptionPane.showMessageDialog(null, "Registro Adicionado");
 
         limparTelaClientes();
 
