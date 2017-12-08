@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import Telas.*;
+import java.util.Properties;
 
 
 /**
@@ -20,17 +21,48 @@ import Telas.*;
  */
 public class DataBase {
 
-    private Connection con;
+    static Connection con=null;
     private Statement stm;
-    private String logText;        
+    private String logText;   
+    private String url;
     
         
 
-    public DataBase() {
-        con = null;
-        stm = null;        
+    public DataBase() {                
+        stm = null;          
     }
     
+   
+    public static Connection getConnection() {
+        if (con != null) {
+            return con;
+        }
+        // get db, user, pass from settings file
+        return getConnection("itcars", "postgres", "root");
+    }
+    
+    
+    
+    private static Connection getConnection(String db_name,String user_name,String password)
+    {
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+            con=DriverManager.getConnection("jdbc:postgresql://localhost/"+db_name+"?user="+user_name+"&password="+password);
+            con.setAutoCommit(false);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return con;        
+    }
+    
+    
+    
+    
+
 
     public void conecta() {
         try {
