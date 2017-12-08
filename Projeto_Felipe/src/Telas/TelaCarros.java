@@ -41,11 +41,17 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carros_getcor.setEnabled(true);
         txtfield_carros_getcombust.setEnabled(true);
         txtarea_carros_gethistory.setEnabled(true);
-        txtfield_carro_getrenavan.setEnabled(true);                                
+
+        txtfield_carro_getrenavam.setEnabled(true);       
+                
+               
+
+                                
     }
     
      public void armazenaInstancia(String instancia) {
         classeMenu.setInstancia(instancia);
+
     }
 
     public void travarTxtfieldConsulta(){
@@ -56,12 +62,12 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carros_getcor.setEnabled(false);
         txtfield_carros_getcombust.setEnabled(false);
         txtarea_carros_gethistory.setEnabled(false);
-        txtfield_carro_getrenavan.setEnabled(false); 
+        txtfield_carro_getrenavam.setEnabled(false); 
     }
     public void limparTxtfieldCarro(){
         txtfield_carros_cadplaca.setText("");
         txtarea_carros_cadhistory.setText("");
-        txtfield_carro_cadrenavan.setText("");
+        txtfield_carro_cadrenavam.setText("");
         txtfield_carros_cadano.setText("");
         txtfield_carros_cadcombust.setText("");
         txtfield_carros_cadcor.setText("");
@@ -95,7 +101,7 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carros_cadano = new javax.swing.JTextField();
         txtfield_carros_cadcor = new javax.swing.JTextField();
         txtfield_carros_cadcombust = new javax.swing.JTextField();
-        txtfield_carro_cadrenavan = new javax.swing.JTextField();
+        txtfield_carro_cadrenavam = new javax.swing.JTextField();
         jLabel44 = new javax.swing.JLabel();
         txtfield_carros_cadplaca = new javax.swing.JTextField();
         try{
@@ -121,7 +127,7 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carros_getmodelo = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
         txtfield_carros_getmarca = new javax.swing.JTextField();
-        txtfield_carro_getrenavan = new javax.swing.JTextField();
+        txtfield_carro_getrenavam = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
         txtfield_carros_getcor = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
@@ -160,7 +166,7 @@ public class TelaCarros extends javax.swing.JFrame {
         jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
-        jLabel29.setText("RENAVAN");
+        jLabel29.setText("RENAVAM");
         jPanel5.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 70, -1));
 
         jLabel30.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
@@ -206,8 +212,8 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carros_cadcombust.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
         jPanel5.add(txtfield_carros_cadcombust, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 180, 30));
 
-        txtfield_carro_cadrenavan.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
-        jPanel5.add(txtfield_carro_cadrenavan, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 180, 30));
+        txtfield_carro_cadrenavam.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
+        jPanel5.add(txtfield_carro_cadrenavam, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 180, 30));
 
         jLabel44.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
         jLabel44.setText("PLACA");
@@ -286,12 +292,12 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carros_getmarca.setEnabled(false);
         jPanel2.add(txtfield_carros_getmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 260, 30));
 
-        txtfield_carro_getrenavan.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
-        txtfield_carro_getrenavan.setEnabled(false);
-        jPanel2.add(txtfield_carro_getrenavan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 360, 30));
+        txtfield_carro_getrenavam.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
+        txtfield_carro_getrenavam.setEnabled(false);
+        jPanel2.add(txtfield_carro_getrenavam, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 360, 30));
 
         jLabel38.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
-        jLabel38.setText("RENAVAN");
+        jLabel38.setText("RENAVAM");
         jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 70, -1));
 
         txtfield_carros_getcor.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
@@ -387,7 +393,7 @@ public class TelaCarros extends javax.swing.JFrame {
         Carros cadcarro = new Carros();
         
         cadcarro.setPlaca(txtfield_carros_cadplaca.getText().toUpperCase());
-        cadcarro.setRenavan(txtfield_carro_cadrenavan.getText().toUpperCase());
+        cadcarro.setRenavan(txtfield_carro_cadrenavam.getText().toUpperCase());
         cadcarro.setModelo(txtfield_carros_cadmodelo.getText().toUpperCase());
         cadcarro.setMarca(cmbbox_carros_cadmarca.getSelectedItem().toString().toUpperCase());
         cadcarro.setCor(txtfield_carros_cadcor.getText().toUpperCase());
@@ -432,7 +438,7 @@ public class TelaCarros extends javax.swing.JFrame {
 
         acessobanco.conecta();
         String placa = txtfield_carros_getplaca.getText().toUpperCase();
-        String novo_renavan = txtfield_carro_getrenavan.getText().toUpperCase();
+        String novo_renavam = txtfield_carro_getrenavam.getText().toUpperCase();
         String novo_modelo = txtfield_carros_getmodelo.getText().toUpperCase();
         String novo_marca = txtfield_carros_getmarca.getText().toUpperCase();
         String novo_cor = txtfield_carros_getcor.getText().toUpperCase();
@@ -441,7 +447,7 @@ public class TelaCarros extends javax.swing.JFrame {
         String novo_historico = txtarea_carros_gethistory.getText().toUpperCase();
         
 
-        acessobanco.updateCarro(placa,novo_renavan,novo_modelo,novo_marca,
+        acessobanco.updateCarro(placa,novo_renavam,novo_modelo,novo_marca,
                 novo_cor,novo_ano,novo_combustivel,novo_historico);
         
         acessobanco.fechaConexao();
@@ -466,7 +472,7 @@ public class TelaCarros extends javax.swing.JFrame {
                 txtfield_carros_getmarca.setText(resultados.getString("marca").toUpperCase());
                 txtfield_carros_getcor.setText(resultados.getString("cor").toUpperCase());
                 txtfield_carros_getcombust.setText(resultados.getString("combustivel").toUpperCase());
-                txtfield_carro_getrenavan.setText(resultados.getString("renavan"));
+                txtfield_carro_getrenavam.setText(resultados.getString("renavan"));
                 int ano = resultados.getInt("ano");
                 txtfield_carros_getano.setText(String.valueOf(ano));
                 txtarea_carros_gethistory.setText(resultados.getString("historico"));   
@@ -561,8 +567,8 @@ public class TelaCarros extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea txtarea_carros_cadhistory;
     private javax.swing.JTextArea txtarea_carros_gethistory;
-    private javax.swing.JTextField txtfield_carro_cadrenavan;
-    private javax.swing.JTextField txtfield_carro_getrenavan;
+    private javax.swing.JTextField txtfield_carro_cadrenavam;
+    private javax.swing.JTextField txtfield_carro_getrenavam;
     private javax.swing.JTextField txtfield_carros_cadano;
     private javax.swing.JTextField txtfield_carros_cadcombust;
     private javax.swing.JTextField txtfield_carros_cadcor;
