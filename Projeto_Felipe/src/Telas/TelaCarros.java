@@ -41,17 +41,17 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carros_getcor.setEnabled(true);
         txtfield_carros_getcombust.setEnabled(true);
         txtarea_carros_gethistory.setEnabled(true);
-<<<<<<< HEAD
+
         txtfield_carro_getrenavam.setEnabled(true);       
                 
                
-=======
-        txtfield_carro_getrenavan.setEnabled(true);                                
+
+                                
     }
     
      public void armazenaInstancia(String instancia) {
         classeMenu.setInstancia(instancia);
->>>>>>> e1b5aa23ed9641cb7c92df221f7d4d5c1c090de3
+
     }
 
     public void travarTxtfieldConsulta(){
@@ -479,7 +479,7 @@ public class TelaCarros extends javax.swing.JFrame {
                 txtfield_carros_getmarca.setText(resultados.getString("marca").toUpperCase());
                 txtfield_carros_getcor.setText(resultados.getString("cor").toUpperCase());
                 txtfield_carros_getcombust.setText(resultados.getString("combustivel").toUpperCase());
-                txtfield_carro_getrenavam.setText(resultados.getString("renavam"));
+                txtfield_carro_getrenavam.setText(resultados.getString("renavan"));
                 int ano = resultados.getInt("ano");
                 txtfield_carros_getano.setText(String.valueOf(ano));
                 txtarea_carros_gethistory.setText(resultados.getString("historico"));   
