@@ -99,6 +99,12 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         txt_servico_mdeobra = new javax.swing.JTextField();
         txt_servico_func = new javax.swing.JTextField();
         txt_servico_data = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter cpf= new javax.swing.text.MaskFormatter("##/##/####");
+            txt_servico_data = new javax.swing.JFormattedTextField(cpf);
+        }
+        catch (Exception e){
+        }
         txt_servico_placa = new javax.swing.JTextField();
         try{
             javax.swing.text.MaskFormatter placa= new javax.swing.text.MaskFormatter("UUU-####");
