@@ -100,9 +100,21 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         txt_servico_func = new javax.swing.JTextField();
         txt_servico_data = new javax.swing.JTextField();
         txt_servico_placa = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter placa= new javax.swing.text.MaskFormatter("UUU-####");
+            txt_servico_placa = new javax.swing.JFormattedTextField(placa);
+        }
+        catch (Exception e){
+        }
         jScrollPane4 = new javax.swing.JScrollPane();
         txtarea_servico_desc = new javax.swing.JTextArea();
         txt_servico_cpf = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter cpf= new javax.swing.text.MaskFormatter("###.###.###-##");
+            txt_servico_cpf = new javax.swing.JFormattedTextField(cpf);
+        }
+        catch (Exception e){
+        }
         btn_cad_ordemservico = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txt_servico_valor = new javax.swing.JTextField();
@@ -208,6 +220,12 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txt_servico_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 80, 30));
+
+        txt_servico_placa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_servico_placaActionPerformed(evt);
+            }
+        });
         jPanel3.add(txt_servico_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 210, 30));
 
         txtarea_servico_desc.setColumns(20);
@@ -571,6 +589,10 @@ public class TelaOrdemDeServico extends javax.swing.JFrame {
         telaMenu.setVisible(true);
         System.out.println("Fechando");
     }//GEN-LAST:event_formWindowClosing
+
+    private void txt_servico_placaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_servico_placaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_servico_placaActionPerformed
 
     /**
      * @param args the command line arguments
