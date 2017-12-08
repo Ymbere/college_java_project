@@ -69,7 +69,7 @@ public class TelaMenu extends javax.swing.JFrame {
                 btn_ClientesActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 100, 40));
+        jPanel1.add(btn_Clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 110, 40));
 
         btn_Carros.setBackground(new java.awt.Color(102, 102, 102));
         btn_Carros.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
@@ -79,7 +79,7 @@ public class TelaMenu extends javax.swing.JFrame {
                 btn_CarrosActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Carros, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 100, 40));
+        jPanel1.add(btn_Carros, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 110, 40));
 
         btn_Servicos.setBackground(new java.awt.Color(102, 102, 102));
         btn_Servicos.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
@@ -89,7 +89,7 @@ public class TelaMenu extends javax.swing.JFrame {
                 btn_ServicosActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Servicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 100, 40));
+        jPanel1.add(btn_Servicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 110, 40));
 
         lbl_usuariologged.setFont(new java.awt.Font("Andale Mono", 1, 12)); // NOI18N
         lbl_usuariologged.setText("Usuario logado:");
