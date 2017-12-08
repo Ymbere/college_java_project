@@ -7,6 +7,7 @@ package Telas;
 
 import DB.DataBase;
 import Classes.Clientes;
+import Classes.Menu;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowListener;
 
@@ -32,6 +33,7 @@ public class TelaClientes extends javax.swing.JFrame {
      * Creates new form TelaClientes
      */
     DataBase acessobanco = new DataBase();
+    Menu classeMenu = new Menu();
 
     public void travarTxtfieldConsulta() {
 
@@ -41,6 +43,12 @@ public class TelaClientes extends javax.swing.JFrame {
         txt_email_consulta.setEnabled(false);
         txt_enderecol_consulta.setEnabled(false);
     }
+    
+    public void armazenaInstancia(String instancia){
+        classeMenu.setInstancia(instancia);
+    }
+    
+    
 
     public void close_operation() {
         dispose();
@@ -380,7 +388,9 @@ public class TelaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_buscar_cpfActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        new Menu().setVisible(true);
+        TelaMenu telaMenu = new TelaMenu();
+        telaMenu.SetInstance(classeMenu.getInstancia());
+        telaMenu.setVisible(true);
         System.out.println("Fechando");
     }//GEN-LAST:event_formWindowClosing
 

@@ -6,6 +6,7 @@
 package Telas;
 
 import Classes.Carros;
+import Classes.Menu;
 import DB.DataBase;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,6 +27,7 @@ public class TelaCarros extends javax.swing.JFrame {
      * Creates new form TelaCarros
      */
     DataBase acessobanco = new DataBase();
+    Menu classeMenu = new Menu();
     
     public TelaCarros() {
         initComponents();
@@ -39,9 +41,17 @@ public class TelaCarros extends javax.swing.JFrame {
         txtfield_carros_getcor.setEnabled(true);
         txtfield_carros_getcombust.setEnabled(true);
         txtarea_carros_gethistory.setEnabled(true);
+<<<<<<< HEAD
         txtfield_carro_getrenavam.setEnabled(true);       
                 
                
+=======
+        txtfield_carro_getrenavan.setEnabled(true);                                
+    }
+    
+     public void armazenaInstancia(String instancia) {
+        classeMenu.setInstancia(instancia);
+>>>>>>> e1b5aa23ed9641cb7c92df221f7d4d5c1c090de3
     }
 
     public void travarTxtfieldConsulta(){
@@ -489,7 +499,9 @@ public class TelaCarros extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        new Menu().setVisible(true);
+        TelaMenu menu = new TelaMenu();
+        menu.setVisible(true);   
+        menu.SetInstance(classeMenu.getInstancia());        
         System.out.println("Fechando");
     }//GEN-LAST:event_formWindowClosing
 
